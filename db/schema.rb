@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_220041) do
+ActiveRecord::Schema.define(version: 2020_03_02_223230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "settings", force: :cascade do |t|
+    t.boolean "eye_break_notification_active", default: true
+    t.boolean "morning_notification_active", default: true
+    t.boolean "night_notification_active", default: true
+    t.bigint "user_id"
+    t.integer "morning_notification_hour", default: 8
+    t.integer "morning_notification_minute", default: 30
+    t.integer "night_notification_hour", default: 18
+    t.integer "night_notification_minute", default: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_settings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
+    t.integer "timezone"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -28,4 +43,5 @@ ActiveRecord::Schema.define(version: 2020_03_02_220041) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "settings", "users"
 end

@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_223230) do
+ActiveRecord::Schema.define(version: 2020_03_02_234335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "summary"
+    t.string "title"
+    t.string "directions"
+    t.string "sequence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "exercise_id"
+    t.date "date"
+    t.string "time_of_day"
+    t.boolean "completed"
+    t.integer "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_routines_on_exercise_id"
+    t.index ["user_id"], name: "index_routines_on_user_id"
+  end
 
   create_table "settings", force: :cascade do |t|
     t.boolean "eye_break_notification_active", default: true
@@ -43,5 +65,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_223230) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "routines", "exercises"
+  add_foreign_key "routines", "users"
   add_foreign_key "settings", "users"
 end

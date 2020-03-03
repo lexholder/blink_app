@@ -1,11 +1,11 @@
-const title = 'Test title';
+const title = 'Time to look away from your computer for a minute';
 const options = {
   // icon: '/images/demos/icon-512x512.png',
-  tag: 'message-group-2',
+  tag: 'eye-break',
   renotify: true,
   silent: true,
   requireInteraction: true,
-  body: 'Test'
+  body: ''
 };
 
 

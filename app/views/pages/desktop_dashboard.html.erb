@@ -1,0 +1,10 @@
+<h1>Pages#Dashboard on desktop</h1>
+<p>Find me in app/views/pages/desktop_dashboard.html.erb</p>
+
+
+<div hidden id='eye-break-notification-active'><%= current_user.setting.eye_break_notification_active %></div>
+
+<%= javascript_include_tag 'dashboard_on_desktop' %>
+
+<%= javascript_pack_tag 'dashboard_on_desktop' %>
+

@@ -15,5 +15,10 @@ class SettingsController < ApplicationController
   end
 
   def toggle_eye_break_notification
+    if current_user.setting.eye_break_notification_active
+      current_user.setting.update(eye_break_notification_active: false)
+    else
+      current_user.setting.update(eye_break_notification_active: true)
+    end
   end
 end

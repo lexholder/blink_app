@@ -38,7 +38,7 @@ const eyeBreakNotifications = () => {
       if (active.innerText === "true") {
         pushNotification();
       }
-    }, 1200000);
+    }, 3000);
   });
 };
 

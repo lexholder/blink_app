@@ -2,6 +2,11 @@
 <p>Find me in app/views/pages/desktop_dashboard.html.erb</p>
 
 
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="switch-eye-break">
+  <label class="custom-control-label" for="switch-eye-break">Eye break notification every 20 minutes</label>
+</div>
+
 <div hidden id='eye-break-notification-active'><%= current_user.setting.eye_break_notification_active %></div>
 
 <%= javascript_include_tag 'dashboard_on_desktop' %>

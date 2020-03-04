@@ -2,3 +2,18 @@
 
 <h1>Pages#Dashboard on mobile</h1>
 <p>Find me in app/views/pages/mobile_dashboard.html.erb</p>
+
+<h2>Daily Routines!</h2>
+
+<ul>
+ <li><%= @routine_morning.exercise.title %></li>
+ <li><%= @routine_morning.completed %></li>
+ <li><%= @routine_morning.duration %></li>
+</ul>
+
+<ul>
+  <li><%= @routine_night.exercise.title %></li>
+  <li><%= @routine_night.completed %></li>
+  <li><%= @routine_night.duration %></li>
+</ul>
+

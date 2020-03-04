@@ -1,4 +1,5 @@
 class SettingsController < ApplicationController
+  skip_before_action :verify_authenticity_token, :only => [:toggle_eye_break_notification]
   def edit
   end
 

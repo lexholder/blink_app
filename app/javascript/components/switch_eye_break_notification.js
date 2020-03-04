@@ -15,7 +15,12 @@ const toggleActive = () => {
 
 const switching = () => {
   switchButton.addEventListener('click',(event) =>{
-    toggleActive();
+    fetch("/settings/toggle_eye_break_notification", {
+      method: "PATCH"
+    })
+    .then(() => {
+      toggleActive();
+    })
   })
 };
 

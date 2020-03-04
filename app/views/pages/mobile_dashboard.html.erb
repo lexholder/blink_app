@@ -5,15 +5,31 @@
 
 <h2>Daily Routines!</h2>
 
-<ul>
- <li><%= @routine_morning.exercise.title %></li>
- <li><%= @routine_morning.completed %></li>
- <li><%= @routine_morning.duration %></li>
-</ul>
+<h3>Morning routine</h3>
 
-<ul>
-  <li><%= @routine_night.exercise.title %></li>
-  <li><%= @routine_night.completed %></li>
-  <li><%= @routine_night.duration %></li>
-</ul>
+<% if @routine_morning %>
+
+  <ul>
+   <li><%= @routine_morning.exercise.title %></li>
+   <li><%= @routine_morning.completed %></li>
+   <li><%= @routine_morning.duration %></li>
+  </ul>
+
+<% else %>
+  <p>No routine, sorry!</p>
+<% end %>
+
+<h3>Night routine</h3>
+
+<% if @routine_night %>
+
+  <ul>
+    <li><%= @routine_night.exercise.title %></li>
+    <li><%= @routine_night.completed %></li>
+    <li><%= @routine_night.duration %></li>
+  </ul>
+
+<% else %>
+  <p>No routine, sorry!</p>
+<% end %>
 

@@ -15,14 +15,30 @@ const suggestions = ["Do your favorite leg and back stretches.", "Drink water.",
 const title_start = '1-minute eye break from your computer';
 const title_end = "Time's up!";
 
-const pushStartNotification = () => {
+const optionsForStartNotification = (randomIndex) => {
   const options = {
     tag: 'eye-break',
+    // icon: 'app/assets/images/logo-blink.png',
     renotify: true,
     silent: true,
     requireInteraction: true,
-    body: `${suggestions[Math.floor(Math.random() * suggestions.length)]}\n\nClick to get another suggestion of 1-minute break!`
+    body: `${suggestions[randomIndex]}\n\nClick to get another suggestion for your 1-minute break!`
   };
+  return options;
+};
+
+const shuffleSuggestionOnClick = (notification, randomIndex) => {
+  notification.addEventListener('click', (event) => {
+    let newRandomIndex = randomIndex;
+    while (newRandomIndex === randomIndex) {
+      newRandomIndex = Math.floor(Math.random() * suggestions.length);
+    }
+    pushStartNotification(newRandomIndex);
+  });
+};
+
+const pushStartNotification = (randomIndex) => {
+  const options = optionsForStartNotification(randomIndex);
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
   }
@@ -30,6 +46,7 @@ const pushStartNotification = () => {
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
     var notification = new Notification(title_start, options);
+    shuffleSuggestionOnClick(notification, randomIndex);
   }
 
   // Otherwise, we need to ask the user for permission
@@ -38,6 +55,7 @@ const pushStartNotification = () => {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
         var notification = new Notification(title_start, options);
+        shuffleSuggestionOnClick(notification, randomIndex);
       }
     });
   }
@@ -48,10 +66,11 @@ const eyeBreakNotifications = () => {
   document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
       if (active.innerText === "true") {
-        pushStartNotification();
+        const randomIndex = Math.floor(Math.random() * suggestions.length);
+        pushStartNotification(randomIndex);
       }
-    // }, 1200000);
-    }, 5000);
+    }, 1200000);
+    // }, 10000);
   });
 };
 

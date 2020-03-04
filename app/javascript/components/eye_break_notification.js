@@ -12,13 +12,11 @@ const suggestions = ["Do your favorite leg and back stretches.", "Drink water.",
                       "Take out a notepad and pen and write whatever is in your mind: your feelings, your plans for the week-end, your thoughts on climate change...",
                       "Listen to your favorite song.", "Head to the supply closet and pick out a few new office supplies.","Think about what you are grateful for."];
 
-const title_start = '1-minute eye break from your computer';
-const title_end = "Time's up!";
+const title = '1-minute eye break from your computer';
 
-const optionsForStartNotification = (randomIndex) => {
+const optionsForNotification = (randomIndex) => {
   const options = {
     tag: 'eye-break',
-    // icon: 'app/assets/images/logo-blink.png',
     renotify: true,
     silent: true,
     requireInteraction: true,
@@ -33,19 +31,19 @@ const shuffleSuggestionOnClick = (notification, randomIndex) => {
     while (newRandomIndex === randomIndex) {
       newRandomIndex = Math.floor(Math.random() * suggestions.length);
     }
-    pushStartNotification(newRandomIndex);
+    pushNotification(newRandomIndex);
   });
 };
 
-const pushStartNotification = (randomIndex) => {
-  const options = optionsForStartNotification(randomIndex);
+const pushNotification = (randomIndex) => {
+  const options = optionsForNotification(randomIndex);
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
   }
   // Let's check whether notification permissions have already been granted
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
-    var notification = new Notification(title_start, options);
+    var notification = new Notification(title, options);
     shuffleSuggestionOnClick(notification, randomIndex);
   }
 
@@ -54,7 +52,7 @@ const pushStartNotification = (randomIndex) => {
     Notification.requestPermission().then(function (permission) {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
-        var notification = new Notification(title_start, options);
+        var notification = new Notification(title, options);
         shuffleSuggestionOnClick(notification, randomIndex);
       }
     });
@@ -67,11 +65,12 @@ const eyeBreakNotifications = () => {
     setInterval(() => {
       if (active.innerText === "true") {
         const randomIndex = Math.floor(Math.random() * suggestions.length);
-        pushStartNotification(randomIndex);
+        pushNotification(randomIndex);
       }
     }, 1200000);
     // }, 10000);
   });
 };
+
 
 export { eyeBreakNotifications };

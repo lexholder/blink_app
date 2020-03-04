@@ -2,8 +2,14 @@
 
 <ul>
   <% @exercises.each do |exercise| %>
-    <li><%= @exercise.title %></li>
-    <li><%= @exercise.summary %></li>
-    <li><%= @exercise.directions %></li>
+    <li>
+      <h2><%= exercise.title %></h2>
+      <p><%= exercise.summary %></p>
+      <ul>
+        <%exercise.directions.split("/").each do |direction| %>
+          <li> <%= direction %> </li>
+        <% end %>
+      </ul>
+    </li>
   <% end %>
 </ul>

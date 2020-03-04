@@ -5,11 +5,26 @@
     <li>
       <h2><%= exercise.title %></h2>
       <p><%= exercise.summary %></p>
-      <ul>
-        <%exercise.directions.split("/").each do |direction| %>
-          <li> <%= direction %> </li>
-        <% end %>
-      </ul>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+              onclick="window.fillInModal('<%= exercise.title %>','<%= exercise.summary %>','<%= exercise.directions %>')">
+        Open
+      </button>
     </li>
   <% end %>
 </ul>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <h2 id="title-in-modal"></h2>
+      <p id="summary-in-modal"></p>
+      <ul id="directions-list-in-modal">
+      </ul>
+    </div>
+  </div>
+</div>

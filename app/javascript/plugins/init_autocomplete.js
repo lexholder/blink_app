@@ -3,7 +3,7 @@ import places from 'places.js';
 const initAutocomplete = () => {
   const cityInput = document.getElementById('city-input');
   if (cityInput) {
-    places({ container: cityInput });
+    places({ type: 'city', container: cityInput });
   }
 };
 

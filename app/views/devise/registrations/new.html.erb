@@ -7,7 +7,7 @@
     <%= f.input :first_name,
             required: true,
             autofocus: true %>
-    <%= f.input :timezone, collection: (-11)..12,
+    <%= f.input :city, input_html: { id:"city-input" },
           required: true %>
     <%= f.input :email,
                 required: true,

@@ -35,6 +35,10 @@ const fillInModalExercise = (title, summary, directions, duration) => {
   });
   document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
   document.getElementById('timer').dataset.duration = duration;
+  document.getElementById('timer').innerText = "Start timer";
+  if (window.intervalForRunningExercise){
+    clearInterval(window.intervalForRunningExercise);
+  };
 };
 
 const fillInModalMorningExercise = (title, summary, directions, duration) => {

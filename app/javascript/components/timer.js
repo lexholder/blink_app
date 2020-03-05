@@ -20,6 +20,10 @@ const timesUp = () => {
   }
 };
 
+const stopTimer = (timeInterval) => {
+  clearInterval(timeInterval);
+}
+
 const setTimer = (duration) => {
   timer.classList.add("disabled");
   timer.classList.remove("clickable");
@@ -40,11 +44,12 @@ const setTimer = (duration) => {
     } else if (timeRemaining === -1) {
       timesUp();
     } else if (timeRemaining === -5) {
-      clearInterval(timeinterval);
+      stopTimer(timeinterval);
       timer.innerHTML = `Restart the timer`;
     }
     timeRemaining = timeRemaining - 1;
   },1000);
+  window.intervalForRunningExercise = timeinterval;
 };
 
 const exerciseTimer = () => {

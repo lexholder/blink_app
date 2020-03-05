@@ -25,6 +25,6 @@ namespace :routine do
     @setting = Setting.all.select { |r| r.night_notification_active == true }
     @setting.each do |setting|
       UserMailer.with(user: setting.user).night_notification.deliver_now
+    end
   end
 end
-

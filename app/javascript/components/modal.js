@@ -1,4 +1,4 @@
-const fillInModal = (title, summary, directions, duration) => {
+const fillInModalExercise = (title, summary, directions, duration) => {
   document.getElementById("title-in-modal").innerText = title;
   document.getElementById("summary-in-modal").innerText = summary;
   let directionListHTML = "";
@@ -9,4 +9,9 @@ const fillInModal = (title, summary, directions, duration) => {
   document.getElementById('timer').dataset.duration = duration;
 };
 
-export { fillInModal };
+const fillInModalResource = (title, content) => {
+  document.getElementById("resource-title-in-modal").innerHTML = title;
+  document.getElementById("resource-content-in-modal").innerHTML = content;
+};
+
+export { fillInModalExercise, fillInModalResource };

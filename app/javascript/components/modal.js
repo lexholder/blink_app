@@ -36,6 +36,7 @@ const fillInModalExercise = (title, summary, directions, duration) => {
   document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
   document.getElementById('timer').dataset.duration = duration;
   document.getElementById('timer').innerText = "Start timer";
+  timer.classList.remove("disabled");
   if (window.intervalForRunningExercise){
     clearInterval(window.intervalForRunningExercise);
   };

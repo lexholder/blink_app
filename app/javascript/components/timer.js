@@ -55,7 +55,9 @@ const setTimer = (duration) => {
 const exerciseTimer = () => {
   if (timer){
     timer.addEventListener('click', (event) => {
-      setTimer(timer.dataset.duration);
+      if (!timer.classList.contains("disabled")){
+        setTimer(timer.dataset.duration);
+      }
     });
   }
 };

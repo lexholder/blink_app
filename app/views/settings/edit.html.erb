@@ -2,3 +2,19 @@
 
 <h1>Settings#edit</h1>
 <p>Find me in app/views/settings/edit.html.erb</p>
+
+
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="switch-morning">
+  <label class="custom-control-label" for="switch-morning">Morning routine notification</label>
+</div>
+
+<div hidden id='morning-notification-active'><%= current_user.setting.morning_notification_active %></div>
+
+
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="switch-night">
+  <label class="custom-control-label" for="switch-night">Night routine notification</label>
+</div>
+
+<div hidden id='night-notification-active'><%= current_user.setting.night_notification_active %></div>

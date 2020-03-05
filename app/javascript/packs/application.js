@@ -6,3 +6,5 @@ console.log("Hello from app/javascript/packs/application.js");
 window.fillInModal = fillInModal;
 window.exerciseTimer = exerciseTimer;
 
+exerciseTimer();
+

@@ -1,5 +1,4 @@
-
-const fillInModal = (title, summary, directions) => {
+const fillInModal = (title, summary, directions, duration) => {
   document.getElementById("title-in-modal").innerText = title;
   document.getElementById("summary-in-modal").innerText = summary;
   let directionListHTML = "";
@@ -7,6 +6,7 @@ const fillInModal = (title, summary, directions) => {
     directionListHTML = directionListHTML + `<li>${direction}</li>`
   });
   document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
+  document.getElementById('timer').dataset.duration = duration;
 };
 
 export { fillInModal };

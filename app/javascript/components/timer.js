@@ -1,11 +1,10 @@
 const timer = document.getElementById('timer');
 
-const exerciseTimer = (duration) => {
+const setTimer = (duration) => {
   timer.classList.add("disabled");
   timer.classList.remove("clickable");
   let timeRemaining = duration;
   const timeinterval = setInterval(() => {
-    console.log(timeRemaining);
     if (timeRemaining >= 0){
       const minutesRemaining = Math.floor(timeRemaining / 60);
       const secondsRemaining = timeRemaining % 60;
@@ -29,6 +28,12 @@ const exerciseTimer = (duration) => {
     }
     timeRemaining = timeRemaining - 1;
   },1000);
+};
+
+const exerciseTimer = () => {
+  timer.addEventListener('click', (event) => {
+    setTimer(timer.dataset.duration);
+  });
 };
 
 export { exerciseTimer };

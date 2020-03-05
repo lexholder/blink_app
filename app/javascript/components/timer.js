@@ -1,5 +1,15 @@
 const timer = document.getElementById('timer');
 
+const timesUp = () => {
+  timer.classList.remove("disabled");
+  timer.classList.add("clickable");
+  if (timer.classList.contains("morning")){
+    document.getElementById('completed-morning').innerText = "true";
+  } else if (timer.classList.contains("morning")){
+    document.getElementById('completed-night').innerText = "true";
+  }
+};
+
 const setTimer = (duration) => {
   timer.classList.add("disabled");
   timer.classList.remove("clickable");
@@ -18,12 +28,9 @@ const setTimer = (duration) => {
       }
       timer.innerHTML = `<span id="minutes">${stringForMinutes}</span>:<span class="seconds">${stringForSeconds}</span>`;
     } else if (timeRemaining === -1) {
-      timer.classList.remove("disabled");
-      timer.classList.add("clickable");
+      timesUp();
     } else if (timeRemaining === -5) {
       clearInterval(timeinterval);
-      timer.classList.remove("disabled");
-      timer.classList.add("clickable");
       timer.innerHTML = `Restart the timer`;
     }
     timeRemaining = timeRemaining - 1;

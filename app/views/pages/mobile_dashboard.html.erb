@@ -16,7 +16,7 @@
       <li><%= @routine_morning.completed %></li>
       <li><%= @routine_morning.duration %></li>
     </ul>
-    <div class="completed-morning"><%= @routine_morning.completed %></div>
+    <div id="completed-morning"><%= @routine_morning.completed %></div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
             onclick="window.fillInModalMorningExercise('<%= @routine_morning.exercise.title %>','<%= @routine_morning.exercise.summary %>','<%= @routine_morning.exercise.directions %>','<%= @routine_morning.duration %>')">
       Open
@@ -40,7 +40,7 @@
       <li><%= @routine_night.completed %></li>
       <li><%= @routine_night.duration %></li>
     </ul>
-    <div class="completed-night"><%= @routine_morning.completed %></div>
+    <div id="completed-night"><%= @routine_morning.completed %></div>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
             onclick="window.fillInModalNightExercise('<%= @routine_night.exercise.title %>','<%= @routine_night.exercise.summary %>','<%= @routine_night.exercise.directions %>', '<%= @routine_morning.duration %>')">

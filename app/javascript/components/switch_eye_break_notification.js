@@ -1,10 +1,6 @@
 const switchButton = document.getElementById("switch-eye-break");
 const active = document.getElementById("eye-break-notification-active");
 
-const setSwitch = () => {
-  switchButton.checked = active.innerText === "true";
-};
-
 const toggleActive = () => {
   if (active.innerText === "true"){
     active.innerText = "false";
@@ -24,4 +20,4 @@ const switching = () => {
   })
 };
 
-export { setSwitch, switching };
+export { switching };

@@ -4,9 +4,19 @@ const timesUp = () => {
   timer.classList.remove("disabled");
   timer.classList.add("clickable");
   if (timer.classList.contains("morning")){
-    document.getElementById('completed-morning').innerText = "true";
-  } else if (timer.classList.contains("morning")){
-    document.getElementById('completed-night').innerText = "true";
+    fetch("/routines/complete_morning_routine", {
+      method: "PATCH"
+    })
+    .then(() => {
+      document.getElementById('completed-morning').innerText = "true";
+    })
+  } else if (timer.classList.contains("night")){
+    fetch("/routines/complete_night_routine", {
+      method: "PATCH"
+    })
+    .then(() => {
+      document.getElementById('completed-night').innerText = "true";
+    })
   }
 };
 

@@ -5,42 +5,55 @@
 
 <h2>Daily Routines!</h2>
 
-<h3>Morning routine</h3>
+<div class="routine-morning">
 
-<% if @routine_morning %>
+  <h3>Morning routine</h3>
 
-  <ul>
-   <li><%= @routine_morning.exercise.title %></li>
-   <li><%= @routine_morning.completed %></li>
-   <li><%= @routine_morning.duration %></li>
-  </ul>
+  <% if @routine_morning %>
+
+    <ul>
+      <li><%= @routine_morning.exercise.title %></li>
+      <li><%= @routine_morning.completed %></li>
+      <li><%= @routine_morning.duration %></li>
+    </ul>
+    <div id="completed-morning"><%= @routine_morning.completed %></div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-          onclick="window.fillInModalExercise('<%= @routine_morning.exercise.title %>','<%= @routine_morning.exercise.summary %>','<%= @routine_morning.exercise.directions %>','<%= @routine_morning.duration %>')">
-    Open
-  </button>
+            onclick="window.fillInModalMorningExercise('<%= @routine_morning.exercise.title %>','<%= @routine_morning.exercise.summary %>','<%= @routine_morning.exercise.directions %>','<%= @routine_morning.duration %>')">
+      Open
+    </button>
 
-<% else %>
-  <p>No routine, sorry!</p>
-<% end %>
+  <% else %>
+    <p>No routine, sorry!</p>
+  <% end %>
 
-<h3>Night routine</h3>
+</div>
 
-<% if @routine_night %>
 
-  <ul>
-    <li><%= @routine_night.exercise.title %></li>
-    <li><%= @routine_night.completed %></li>
-    <li><%= @routine_night.duration %></li>
-  </ul>
+<div class="routine-nigth">
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-          onclick="window.fillInModalExercise('<%= @routine_night.exercise.title %>','<%= @routine_night.exercise.summary %>','<%= @routine_night.exercise.directions %>', '<%= @routine_morning.duration %>')">
-    Open
-  </button>
+  <h3>Night routine</h3>
 
-<% else %>
-  <p>No routine, sorry!</p>
-<% end %>
+  <% if @routine_night %>
+
+    <ul>
+      <li><%= @routine_night.exercise.title %></li>
+      <li><%= @routine_night.completed %></li>
+      <li><%= @routine_night.duration %></li>
+    </ul>
+    <div id="completed-night"><%= @routine_night.completed %></div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+            onclick="window.fillInModalNightExercise('<%= @routine_night.exercise.title %>','<%= @routine_night.exercise.summary %>','<%= @routine_night.exercise.directions %>', '<%= @routine_morning.duration %>')">
+      Open
+    </button>
+
+  <% else %>
+    <p>No routine, sorry!</p>
+  <% end %>
+
+
+</div>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -54,7 +67,7 @@
       <p id="summary-in-modal"></p>
       <ul id="directions-list-in-modal">
       </ul>
-      <div class='clickable' id="timer">Start timer</div>
+      <div class="clickable" id="timer"></div>
     </div>
   </div>
 </div>

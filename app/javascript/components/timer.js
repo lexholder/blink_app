@@ -1,5 +1,29 @@
 const timer = document.getElementById('timer');
 
+const timesUp = () => {
+  timer.classList.remove("disabled");
+  timer.classList.add("clickable");
+  if (timer.classList.contains("morning")){
+    fetch("/routines/complete_morning_routine", {
+      method: "PATCH"
+    })
+    .then(() => {
+      document.getElementById('completed-morning').innerText = "true";
+    })
+  } else if (timer.classList.contains("night")){
+    fetch("/routines/complete_night_routine", {
+      method: "PATCH"
+    })
+    .then(() => {
+      document.getElementById('completed-night').innerText = "true";
+    })
+  }
+};
+
+const stopTimer = (timeInterval) => {
+  clearInterval(timeInterval);
+}
+
 const setTimer = (duration) => {
   timer.classList.add("disabled");
   timer.classList.remove("clickable");
@@ -18,22 +42,22 @@ const setTimer = (duration) => {
       }
       timer.innerHTML = `<span id="minutes">${stringForMinutes}</span>:<span class="seconds">${stringForSeconds}</span>`;
     } else if (timeRemaining === -1) {
-      timer.classList.remove("disabled");
-      timer.classList.add("clickable");
+      timesUp();
     } else if (timeRemaining === -5) {
-      clearInterval(timeinterval);
-      timer.classList.remove("disabled");
-      timer.classList.add("clickable");
+      stopTimer(timeinterval);
       timer.innerHTML = `Restart the timer`;
     }
     timeRemaining = timeRemaining - 1;
   },1000);
+  window.intervalForRunningExercise = timeinterval;
 };
 
 const exerciseTimer = () => {
   if (timer){
     timer.addEventListener('click', (event) => {
-      setTimer(timer.dataset.duration);
+      if (!timer.classList.contains("disabled")){
+        setTimer(timer.dataset.duration);
+      }
     });
   }
 };

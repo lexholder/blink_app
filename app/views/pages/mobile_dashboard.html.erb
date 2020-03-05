@@ -14,6 +14,10 @@
    <li><%= @routine_morning.completed %></li>
    <li><%= @routine_morning.duration %></li>
   </ul>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+          onclick="window.fillInModal('<%= @routine_morning.exercise.title %>','<%= @routine_morning.exercise.summary %>','<%= @routine_morning.exercise.directions %>','<%= @routine_morning.duration %>')">
+    Open
+  </button>
 
 <% else %>
   <p>No routine, sorry!</p>
@@ -29,7 +33,28 @@
     <li><%= @routine_night.duration %></li>
   </ul>
 
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+          onclick="window.fillInModal('<%= @routine_night.exercise.title %>','<%= @routine_night.exercise.summary %>','<%= @routine_night.exercise.directions %>', '<%= @routine_morning.duration %>')">
+    Open
+  </button>
+
 <% else %>
   <p>No routine, sorry!</p>
 <% end %>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <h2 id="title-in-modal"></h2>
+      <p id="summary-in-modal"></p>
+      <ul id="directions-list-in-modal">
+      </ul>
+      <div class='clickable' id="timer">Start timer</div>
+    </div>
+  </div>
+</div>

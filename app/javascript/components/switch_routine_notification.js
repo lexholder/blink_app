@@ -3,15 +3,6 @@ const switchNightButton = document.getElementById("switch-night");
 const morningActive = document.getElementById("morning-notification-active");
 const nightActive = document.getElementById("night-notification-active");
 
-const setRoutineSwitches = () => {
-  if (switchMorningButton) {
-    switchMorningButton.checked = morningActive.innerText === "true";
-  }
-  if (switchNightButton){
-    switchNightButton.checked = nightActive.innerText === "true";
-  }
-};
-
 
 const toggleMorningActive = () => {
   if (morningActive.innerText === "true"){
@@ -52,4 +43,4 @@ const switchingRoutine = () => {
   }
 };
 
-export { setRoutineSwitches, switchingRoutine };
+export { switchingRoutine };

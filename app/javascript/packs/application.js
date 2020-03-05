@@ -13,5 +13,5 @@ window.exerciseTimer = exerciseTimer;
 
 exerciseTimer();
 
-setRoutineSwitches();
+// setRoutineSwitches();
 switchingRoutine();

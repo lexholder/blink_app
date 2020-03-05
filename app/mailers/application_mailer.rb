@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'the.blink.app367@gmail.com'
   layout 'mailer'
 end

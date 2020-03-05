@@ -31,9 +31,11 @@ const setTimer = (duration) => {
 };
 
 const exerciseTimer = () => {
-  timer.addEventListener('click', (event) => {
-    setTimer(timer.dataset.duration);
-  });
+  if (timer){
+    timer.addEventListener('click', (event) => {
+      setTimer(timer.dataset.duration);
+    });
+  }
 };
 
 export { exerciseTimer };

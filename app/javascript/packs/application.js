@@ -1,9 +1,11 @@
 import "bootstrap";
-import { fillInModal } from "../components/modal_for_exercises";
+import { fillInModalExercise, fillInModalResource } from "../components/modal";
 import { exerciseTimer } from "../components/timer";
 
 console.log("Hello from app/javascript/packs/application.js");
-window.fillInModal = fillInModal;
+window.fillInModalExercise = fillInModalExercise;
+window.fillInModalResource = fillInModalResource;
+
 window.exerciseTimer = exerciseTimer;
 
 exerciseTimer();

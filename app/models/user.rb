@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_save :add_default_settings
+  after_create :add_default_settings
   has_many :routines, dependent: :destroy
   has_many :exercises, through: :routines
   has_one :setting, dependent: :destroy

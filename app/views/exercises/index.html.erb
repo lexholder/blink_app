@@ -5,11 +5,14 @@
 <ul>
   <% @exercises.each do |exercise| %>
     <li>
+      <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url('sounds/exercise1.wav') %>">
+        Play
+      </button>
       <h2><%= exercise.title %></h2>
       <p><%= exercise.summary %></p>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-              onclick="window.fillInModalExercise('<%= exercise.title %>','<%= exercise.summary %>','<%= exercise.directions %>',60)">
-        Open
+              onclick="window.fillInModalExercise('<%= exercise.title %>','<%= exercise.summary %>','<%= exercise.directions %>',30)">
+        Read instructions
       </button>
     </li>
   <% end %>
@@ -24,6 +27,9 @@
         </button>
       </div>
       <h2 id="title-in-modal"></h2>
+      <button class="btn btn-primary btn-lg play-btn-modal">
+        Play
+      </button>
       <p id="summary-in-modal"></p>
       <ul id="directions-list-in-modal">
       </ul>

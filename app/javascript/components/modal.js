@@ -1,14 +1,3 @@
-const fillInModalExercise = (title, summary, directions, duration) => {
-  document.getElementById("title-in-modal").innerText = title;
-  document.getElementById("summary-in-modal").innerText = summary;
-  let directionListHTML = "";
-  directions.split("/").forEach( direction => {
-    directionListHTML = directionListHTML + `<li>${direction}</li>`
-  });
-  document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
-  document.getElementById('timer').dataset.duration = duration;
-};
-
 const whyBlink = `<p>As phone and computer screens become more ubiquitious, it’s important to educate ourselves on the dangers that using these devices present to our eye health.</p>
 <p>Before computer and phone screens became a part of our daily lives, people blinked 12 - 18 times per minute. Because of these devices, people now blink about 5 times per minute.</p>
 <p>Not blinking often enough can lead to a dry eye disease called Meibomian Gland Dysfunction, or MGD, and here’s why: everyone has tiny glands in their top and bottom eyelids called meibomian glands. These glands produce an oily substance called meibum that prevents evaporation of the eye’s tear film. The only way that meibum is secreted into your eyes is through blinking.</p>
@@ -37,4 +26,26 @@ const fillInModalResource = (title) => {
   document.getElementById("resource-content-in-modal").innerHTML = content;
 };
 
-export { fillInModalExercise, fillInModalResource };
+const fillInModalExercise = (title, summary, directions, duration) => {
+  document.getElementById("title-in-modal").innerText = title;
+  document.getElementById("summary-in-modal").innerText = summary;
+  let directionListHTML = "";
+  directions.split("/").forEach( direction => {
+    directionListHTML = directionListHTML + `<li>${direction}</li>`
+  });
+  document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
+  document.getElementById('timer').dataset.duration = duration;
+};
+
+const fillInModalMorningExercise = (title, summary, directions, duration) => {
+  fillInModalExercise(title, summary, directions, duration);
+  document.getElementById('timer').classList.add("morning");
+};
+
+const fillInModalNightExercise = (title, summary, directions, duration) => {
+  fillInModalExercise(title, summary, directions, duration);
+  document.getElementById('timer').classList.add("night");
+};
+
+
+export { fillInModalExercise, fillInModalMorningExercise, fillInModalNightExercise, fillInModalResource };

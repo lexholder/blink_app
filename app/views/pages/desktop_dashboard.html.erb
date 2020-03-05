@@ -3,7 +3,7 @@
 
 
 <div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="switch-eye-break">
+  <input type="checkbox" class="custom-control-input" id="switch-eye-break" <%= 'checked' if current_user.setting.eye_break_notification_active %>>
   <label class="custom-control-label" for="switch-eye-break">Eye break notification every 20 minutes</label>
 </div>
 

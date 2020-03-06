@@ -17,3 +17,6 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "Reminder: Nightly Blinking Exercise!")
   end
 end
+
+# user = User.find_by(email: "the.blink.app367@gmail.com")
+# UserMailer.with(user: user).morning_notification.deliver_now

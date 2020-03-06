@@ -5,7 +5,7 @@ const setPlayButton = (button, audio) => {
     if (event.currentTarget.classList.contains('playing')){
       event.currentTarget.classList.remove('playing');
       event.currentTarget.classList.add('paused');
-      event.currentTarget.innerHTML = "Paused";
+      event.currentTarget.innerHTML = "<i class='fas fa-play-circle'></i>";
       audio.pause();
     } else {
       if (window.audio && window.audio != audio){
@@ -14,13 +14,13 @@ const setPlayButton = (button, audio) => {
         playButtons.forEach((button) => {
           button.classList.remove('paused');
           button.classList.remove('playing');
-          button.innerHTML = "Play";
+          button.innerHTML = "<i class='far fa-play-circle'></i>";
         })
       }
       window.audio = audio;
       event.currentTarget.classList.remove('paused');
       event.currentTarget.classList.add('playing');
-      event.currentTarget.innerHTML = "Playing";
+      event.currentTarget.innerHTML = "<i class='fas fa-pause-circle'></i>";
       audio.play();
     }
   });

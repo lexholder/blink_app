@@ -1,24 +1,29 @@
 <div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/Carousellogin.svg' %>)">
-  <h1>Blinking Exercises</h1>
 
-  <ul>
-    <% @exercises.each do |exercise| %>
-      <li>
+<h1>Blinking Exercises</h1>
+
+<ul>
+  <% @exercises.each do |exercise| %>
+    <li class="mb-3">
+      <div class="d-flex justify-content-between">
+
+        <h2><%= exercise.title %></h2>
         <div class="play-btn-page-div" id='<%= exercise.id %>'>
           <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url('sounds/exercise1.wav') %>">
-            Play
+            <i class='far fa-play-circle'></i>
           </button>
         </div>
-        <h2><%= exercise.title %></h2>
-        <p><%= exercise.summary %></p>
-        <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"
-                data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>' data-duration="30"
-                data-playid = '<%= exercise.id %>' >
-          Read instructions
-        </button>
-      </li>
-    <% end %>
-  </ul>
+
+      </div>
+      <p><%= exercise.summary %></p>
+      <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"
+              data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>' data-duration="30"
+              data-playid = '<%= exercise.id %>' >
+        Read instructions
+      </button>
+    </li>
+  <% end %>
+</ul>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

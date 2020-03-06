@@ -1,3 +1,4 @@
+<div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/Carousellogin.svg' %>)">
 
 <h1>Blinking Exercises</h1>
 
@@ -24,19 +25,20 @@
   <% end %>
 </ul>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <h2 id="title-in-modal"></h2>
+        <div id="play-btn-modal-div"></div>
+        <ul id="directions-list-in-modal">
+        </ul>
       </div>
-      <h2 id="title-in-modal"></h2>
-      <div id="play-btn-modal-div"></div>
-      <ul id="directions-list-in-modal">
-      </ul>
     </div>
   </div>
+  <%= render 'shared/navbar_footer' %>
 </div>
-<%= render 'shared/navbar_footer' %>

@@ -1,20 +1,15 @@
 <%= render 'shared/banner_mobile' %>
 
 
-<h2>Daily Routines!</h2>
 
 <div class="routine-morning">
 
-  <h3>Morning routine</h3>
+  <h3>Your morning routine</h3>
 
   <% if @routine_morning %>
 
-    <ul>
-      <li><%= @routine_morning.exercise.title %></li>
-      <li><%= @routine_morning.completed %></li>
-      <li><%= @routine_morning.duration %></li>
-    </ul>
-    <div id="completed-morning"><%= @routine_morning.completed %></div>
+    <p><%= @routine_night.exercise.title %> - <%= @routine_night.completed ? "Completed" : "Not completed yet" %></p>
+
     <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
             data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-duration='<%= @routine_morning.duration %>'
             data-sound="<%= asset_url('sounds/exercise1.wav') %>">
@@ -30,16 +25,10 @@
 
 <div class="routine-nigth">
 
-  <h3>Night routine</h3>
+  <h3>Your night routine</h3>
 
   <% if @routine_night %>
-
-    <ul>
-      <li><%= @routine_night.exercise.title %></li>
-      <li><%= @routine_night.completed %></li>
-      <li><%= @routine_night.duration %></li>
-    </ul>
-    <div id="completed-night"><%= @routine_night.completed %></div>
+    <p><%= @routine_night.exercise.title %> - <%= @routine_night.completed ? "Completed" : "Not completed yet" %></p>
 
     <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
             data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-duration='<%= @routine_night.duration %>'

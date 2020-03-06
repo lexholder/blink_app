@@ -3,13 +3,17 @@
 
 <ul>
   <% @exercises.each do |exercise| %>
-    <li>
-      <div class="play-btn-page-div" id='<%= exercise.id %>'>
-        <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url('sounds/exercise1.wav') %>">
-          Play
-        </button>
+    <li class="mb-3">
+      <div class="d-flex justify-content-between">
+
+        <h2><%= exercise.title %></h2>
+        <div class="play-btn-page-div" id='<%= exercise.id %>'>
+          <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url('sounds/exercise1.wav') %>">
+            <i class='far fa-play-circle'></i>
+          </button>
+        </div>
+
       </div>
-      <h2><%= exercise.title %></h2>
       <p><%= exercise.summary %></p>
       <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"
               data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>' data-duration="30"

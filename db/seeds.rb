@@ -22,7 +22,7 @@ puts "Seeding exercises"
 exercise_1 = Exercise.new(summary: "Gradual exercise from simple close to squeezing", title: "A tight squeeze", directions: "Close both eyes normally/Pause for two seconds/Open/Close the eyes normally again/Pause for two seconds/Aggressively squeeze the lids together for two seconds/Open eyes and relax")
 exercise_1.save!
 
-exercise_2 = Exercise.new(summary: "Vigorous exercise to energize and moisture your eyes", title: "In the blink of an eye", directions: "Close your eyes/Blink hard for two seconds/Relax/Open eyes")
+exercise_2 = Exercise.new(summary: "Vigorous exercise to energize and moisturize your eyes", title: "In the blink of an eye", directions: "Close your eyes/Blink hard for two seconds/Relax/Open eyes")
 exercise_2.save!
 
 exercise_3 = Exercise.new(summary: "Simple exercise with double hard blink", title: "Easy on the eyes", directions: "Close both eyes/Pause for two seconds/Blink hard twice with your eyes still closed/Slowly open your eyes")

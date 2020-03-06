@@ -5,9 +5,11 @@
 <ul>
   <% @exercises.each do |exercise| %>
     <li>
-      <button class="btn btn-primary btn-lg play-btn" id='<%= exercise.id %>' data-sound="<%= asset_url('sounds/exercise1.wav') %>">
-        Play
-      </button>
+      <div class="play-btn-page-div" id='<%= exercise.id %>'>
+        <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url('sounds/exercise1.wav') %>">
+          Play
+        </button>
+      </div>
       <h2><%= exercise.title %></h2>
       <p><%= exercise.summary %></p>
       <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"

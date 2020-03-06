@@ -4,6 +4,7 @@ const setPlayButton = (button, audio) => {
   button.addEventListener('click', (event) => {
     if (event.currentTarget.classList.contains('playing')){
       event.currentTarget.classList.remove('playing');
+      event.currentTarget.classList.add('paused');
       event.currentTarget.innerHTML = "Paused";
       audio.pause();
     } else {
@@ -11,16 +12,28 @@ const setPlayButton = (button, audio) => {
         window.audio.pause();
         window.audio.currentTime = 0;
         playButtons.forEach((button) => {
+          button.classList.remove('paused');
           button.classList.remove('playing');
           button.innerHTML = "Play";
         })
       }
       window.audio = audio;
+      event.currentTarget.classList.remove('paused');
       event.currentTarget.classList.add('playing');
       event.currentTarget.innerHTML = "Playing";
       audio.play();
     }
   });
+};
+
+const setPlayButtonModal = (playButtonModal, audio) => {
+  setPlayButton(playButtonModal, audio);
+  playButtonModal.addEventListener('click', (event) => {
+    const playButtonInPageDiv = document.getElementById(playButtonModal.dataset.playid);
+    const playButtonInPage = playButtonInPageDiv.querySelector('button');
+    playButtonInPage.classList = playButtonModal.classList;
+    playButtonInPage.innerHTML = playButtonModal.innerHTML;
+  })
 };
 
 const setplayButtons = () => {
@@ -61,14 +74,17 @@ const setModalExercises = () => {
         fillInModalContent(title, directions, duration);
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
-          const playButtonInPage = document.getElementById(event.currentTarget.dataset.playid);
+          const playButtonInPageDiv = document.getElementById(event.currentTarget.dataset.playid);
+          const playButtonInPage = playButtonInPageDiv.querySelector('button');
           playButtonModalDiv.innerHTML = playButtonInPage.outerHTML;
-          const playButtonModal = playButtonModalDiv.firstChild;
+          const playButtonModal = playButtonModalDiv.querySelector('button');
+          playButtonModal.dataset.playid = event.currentTarget.dataset.playid;
           let audio = new Audio(playButtonModal.dataset.sound);
-          if (playButtonModal.classList.contains('playing')){
+          if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
             audio = window.audio;
           }
-          setPlayButton(playButtonModal, audio);
+          console.log(audio);
+          setPlayButtonModal(playButtonModal, audio);
         }
       })
     })

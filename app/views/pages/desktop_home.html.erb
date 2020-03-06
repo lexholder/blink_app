@@ -1,7 +1,11 @@
-<li class="nav-item">
-  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-</li>
+<div class="container">
 
-<% if current_user %>
-  <%= link_to 'Take me to my dashboard', dashboard_path %>
-<% end %>
+  <%= link_to "Login", new_user_session_path %>
+
+  <br>
+
+  <% if current_user %>
+    <%= link_to 'Take me to my dashboard', dashboard_path %>
+  <% end %>
+
+</div>

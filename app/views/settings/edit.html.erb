@@ -1,22 +1,26 @@
+<div class="container">
 
-<h1>Settings</h1>
+  <h1>Settings</h1>
 
 
 
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="switch-morning" <%= 'checked' if current_user.setting.morning_notification_active %>>
-  <label class="custom-control-label" for="switch-morning">Morning routine notification</label>
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="switch-morning" <%= 'checked' if current_user.setting.morning_notification_active %>>
+    <label class="custom-control-label" for="switch-morning">Morning routine notification</label>
+  </div>
+
+  <div hidden id='morning-notification-active'><%= current_user.setting.morning_notification_active %></div>
+
+
+  <div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="switch-night" <%= 'checked' if current_user.setting.night_notification_active %>>
+    <label class="custom-control-label" for="switch-night">Night routine notification</label>
+  </div>
+
+  <div hidden id='night-notification-active'><%= current_user.setting.night_notification_active %></div>
+
+   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+
+
 </div>
-
-<div hidden id='morning-notification-active'><%= current_user.setting.morning_notification_active %></div>
-
-
-<div class="custom-control custom-switch">
-  <input type="checkbox" class="custom-control-input" id="switch-night" <%= 'checked' if current_user.setting.night_notification_active %>>
-  <label class="custom-control-label" for="switch-night">Night routine notification</label>
-</div>
-
-<div hidden id='night-notification-active'><%= current_user.setting.night_notification_active %></div>
-
- <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 <%= render 'shared/navbar_footer' %>

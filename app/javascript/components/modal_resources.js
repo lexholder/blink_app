@@ -26,31 +26,6 @@ const fillInModalResource = (title) => {
   document.getElementById("resource-content-in-modal").innerHTML = content;
 };
 
-const fillInModalExercise = (title, summary, directions, duration) => {
-  document.getElementById("title-in-modal").innerText = title;
-  document.getElementById("summary-in-modal").innerText = summary;
-  let directionListHTML = "";
-  directions.split("/").forEach( direction => {
-    directionListHTML = directionListHTML + `<li>${direction}</li>`
-  });
-  document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
-  document.getElementById('timer').dataset.duration = duration;
-  document.getElementById('timer').innerText = "Start timer";
-  timer.classList.remove("disabled");
-  if (window.intervalForRunningExercise){
-    clearInterval(window.intervalForRunningExercise);
-  };
-};
-
-const fillInModalMorningExercise = (title, summary, directions, duration) => {
-  fillInModalExercise(title, summary, directions, duration);
-  document.getElementById('timer').classList.add("morning");
-};
-
-const fillInModalNightExercise = (title, summary, directions, duration) => {
-  fillInModalExercise(title, summary, directions, duration);
-  document.getElementById('timer').classList.add("night");
-};
 
 
-export { fillInModalExercise, fillInModalMorningExercise, fillInModalNightExercise, fillInModalResource };
+export { fillInModalResource };

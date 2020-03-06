@@ -12,14 +12,10 @@ class PagesController < ApplicationController
   end
 
   def home
-    if current_user
-      dashboard
+    if request.headers["HTTP_USER_AGENT"].scan(/iPhone/).empty?
+      render :desktop_home
     else
-      if request.headers["HTTP_USER_AGENT"].scan(/iPhone/).empty?
-        render :desktop_home
-      else
-        render :mobile_home
-      end
+      render :mobile_home
     end
   end
 

@@ -52,15 +52,6 @@ const fillInModalContent = (title, directions, duration) => {
     directionListHTML = directionListHTML + `<li>${direction}</li>`
   });
   document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
-  const timer = document.getElementById('timer');
-  if (timer){
-    timer.dataset.duration = duration;
-    timer.innerText = "Start timer";
-    timer.classList.remove("disabled");
-  }
-  if (window.intervalForRunningExercise){
-    clearInterval(window.intervalForRunningExercise);
-  };
 };
 
 const setModalExercises = () => {

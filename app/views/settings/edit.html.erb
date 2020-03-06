@@ -18,4 +18,5 @@
 
 <div hidden id='night-notification-active'><%= current_user.setting.night_notification_active %></div>
 
+ <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 <%= render 'shared/navbar_footer' %>

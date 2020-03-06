@@ -17,8 +17,9 @@
       <li><%= @routine_morning.duration %></li>
     </ul>
     <div id="completed-morning"><%= @routine_morning.completed %></div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            onclick="window.fillInModalMorningExercise('<%= @routine_morning.exercise.title %>','<%= @routine_morning.exercise.directions %>','<%= @routine_morning.duration %>')">
+    <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
+            data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-duration='<%= @routine_morning.duration %>'
+            data-sound="<%= asset_url('sounds/exercise1.wav') %>">
       Open
     </button>
 
@@ -42,8 +43,9 @@
     </ul>
     <div id="completed-night"><%= @routine_night.completed %></div>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-            onclick="window.fillInModalNightExercise('<%= @routine_night.exercise.title %>','<%= @routine_night.exercise.directions %>', '<%= @routine_morning.duration %>')">
+    <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
+            data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-duration='<%= @routine_night.duration %>'
+            data-sound="<%= asset_url('sounds/exercise1.wav') %>">
       Open
     </button>
 
@@ -64,12 +66,14 @@
         </button>
       </div>
       <h2 id="title-in-modal"></h2>
-      <p id="summary-in-modal"></p>
+      <div id="play-btn-modal-div">
+        <button class="btn btn-primary btn-lg">
+          Play
+        </button>
+      </div>
       <ul id="directions-list-in-modal">
       </ul>
-      <div class="clickable" id="timer"></div>
+      <div class='clickable' id="timer"></div>
     </div>
-  </div>
-  <div class="footer">
   </div>
 </div>

@@ -83,7 +83,6 @@ const setModalExercises = () => {
           if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
             audio = window.audio;
           }
-          console.log(audio);
           setPlayButtonModal(playButtonModal, audio);
         }
       })
@@ -92,16 +91,26 @@ const setModalExercises = () => {
 };
 
 
-const fillInModalMorningExercise = (title, directions, duration) => {
-  fillInModalContent(title, directions, duration);
-  document.getElementById('timer').classList.add("morning");
+const setModalRoutineExercises = () => {
+  const openModalButtons = document.querySelectorAll('.open-btn-modal-routine');
+  if (openModalButtons){
+    openModalButtons.forEach((openModalButton) => {
+      openModalButton.addEventListener('click', (event) => {
+        const title = event.currentTarget.dataset.title;
+        const directions = event.currentTarget.dataset.directions;
+        const duration = event.currentTarget.dataset.duration;
+        fillInModalContent(title, directions, duration);
+        const playButtonModalDiv = document.getElementById('play-btn-modal-div');
+        if (playButtonModalDiv) {
+          const playButtonModal = playButtonModalDiv.querySelector('button');
+          const audio = new Audio(openModalButton.dataset.sound);
+          setPlayButton(playButtonModal, audio);
+        }
+      })
+    })
+  }
 };
 
-const fillInModalNightExercise = (title, directions, duration) => {
-  fillInModalContent(title, directions, duration);
-  document.getElementById('timer').classList.add("night");
-};
 
 
-
-export { setplayButtons, setModalExercises, fillInModalMorningExercise, fillInModalNightExercise };
+export { setplayButtons, setModalExercises, setModalRoutineExercises };

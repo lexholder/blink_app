@@ -18,14 +18,14 @@
 
   <!-- Tab links -->
   <div class="tab">
-    <button class="tablinks" onclick="window.openTabs(event, 'Journal')">Journal</button>
+    <button class="tablinks active" onclick="window.openTabs(event, 'Journal')">Journal</button>
     <button class="tablinks" onclick="window.openTabs(event, 'Blinking Exercises')">Blinking Exercises</button>
     <button class="tablinks" onclick="window.openTabs(event, 'Resources')">Resources</button>
     <button class="tablinks" onclick="window.openTabs(event, 'Settings')">Settings</button>
   </div>
 
   <!-- Tab content -->
-  <div id="Journal" class="tabcontent">
+  <div id="Journal" class="tabcontent" style="display: block">
     <h3>Journal</h3>
     <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
       <% nb_hrs = (@computer_time.minutes / 60).floor %>

@@ -27,7 +27,7 @@
   <!-- Tab content -->
   <div id="Journal" class="tabcontent">
     <h3>Journal</h3>
-    <div id="computer-time" data-computer-time-minutes="<%= @computer_time %>">
+    <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
       <% nb_hrs = (@computer_time.minutes / 60).floor %>
       <% nb_min = @computer_time.minutes % 60 %>
       <p>Computer time:

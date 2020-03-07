@@ -1,18 +1,19 @@
-const updateOnHTML() = => {
-
+const updateOnHTML = () => {
+  return true;
 };
 
 
 const computerTime = () => {
   document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
-      fetch("", {
+      console.log('+1');
+      fetch("/computer_times/update_one_min", {
         method: "PATCH"
       })
-      .then(() => {
-        updateOnHTML();
-      })
-    }, 1000);
+      // .then(() => {
+      //   updateOnHTML();
+      // })
+    }, 60000);
   });
 };
 

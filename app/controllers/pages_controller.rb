@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @routine_morning = current_user.routines.find { |r| r.date == Date.today && r.time_of_day == "morning"}
     @routine_night = current_user.routines.find { |r| r.date == Date.today && r.time_of_day == "night"}
     if request.headers["HTTP_USER_AGENT"].scan(/iPhone/).empty?
+      @computer_time = current_user.computer_times.find { |c| c.date == Date.today }
       render :desktop_dashboard
     else
       render :mobile_dashboard

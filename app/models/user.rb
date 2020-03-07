@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   after_create :add_default_settings
+  has_many :computer_times
   has_many :routines, dependent: :destroy
   has_many :exercises, through: :routines
   has_one :setting, dependent: :destroy

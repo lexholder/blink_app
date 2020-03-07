@@ -27,7 +27,13 @@
   <!-- Tab content -->
   <div id="Journal" class="tabcontent">
     <h3>Journal</h3>
-    <div id="computer-time" data-computer-time-minutes="0">0</div>
+    <div id="computer-time" data-computer-time-minutes="<%= @computer_time %>">
+      <% nb_hrs = (@computer_time.minutes / 60).floor %>
+      <% nb_min = @computer_time.minutes % 60 %>
+      <p>Computer time:
+        <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
+      </p>
+    </div>
   </div>
 
   <div id="Blinking Exercises" class="tabcontent">

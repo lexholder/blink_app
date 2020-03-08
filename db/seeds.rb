@@ -8,6 +8,7 @@
 
 puts "Cleaning"
 
+ComputerTime.destroy_all
 User.destroy_all
 Routine.destroy_all
 Exercise.destroy_all
@@ -32,7 +33,7 @@ exercise_4 = Exercise.new(summary: "Quick exercise to relax your eyes and your m
 exercise_4.save!
 
 puts "Seeding a user"
-User.create(first_name: "Nathalie", email: "nathalie@mail.com", password: "hello123")
+User.create(first_name: "Nathalie", email: "nathalie@mail.com", password: "hello123", city: "Montreal")
 
 
 puts "Done seeding!"

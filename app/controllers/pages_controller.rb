@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     if request.headers["HTTP_USER_AGENT"].scan(/iPhone/).empty?
       render :desktop_dashboard
     else
+      @tab = 'dashboard'
       render :mobile_dashboard
     end
   end

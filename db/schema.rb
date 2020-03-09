@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_07_210625) do
+ActiveRecord::Schema.define(version: 2020_03_09_025416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_03_07_210625) do
     t.date "date"
     t.string "time_of_day"
     t.boolean "completed"
-    t.integer "duration"
+    t.integer "repetition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercise_id"], name: "index_routines_on_exercise_id"

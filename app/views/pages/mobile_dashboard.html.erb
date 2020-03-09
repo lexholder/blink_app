@@ -10,11 +10,17 @@
     <div id="board" data-city="<%= current_user.city %>">
 
       <div class="computer-time">
-        <% nb_hrs = (@computer_time.minutes / 60).floor %>
-        <% nb_min = @computer_time.minutes % 60 %>
-        <p>Computer time:
-          <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
-        </p>
+        <% if @computer_time %>
+
+          <% nb_hrs = (@computer_time.minutes / 60).floor %>
+          <% nb_min = @computer_time.minutes % 60 %>
+          <p>Computer time:
+            <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
+          </p>
+
+        <% else %>
+          <p>Computer time: unavailable.</p>
+        <% end %>
       </div>
 
       <div id="weather-temperature"></div>
@@ -32,10 +38,11 @@
 
         <% if @routine_morning %>
 
-          <p><%= @routine_morning.exercise.title %> - <%= @routine_morning.completed ? "Completed" : "Not completed yet" %></p>
+          <p><%= @routine_morning.exercise.title %> </p>
+          <p id="completed-morning"><%= @routine_morning.completed ? "Completed" : "Not completed yet" %></p>
 
           <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-          <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
+          <button type="button" class="btn btn-primary open-btn-modal-routine morning" data-toggle="modal" data-target="#exampleModal"
                   data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
                   data-sound="<%= asset_url(exercise_asset_path) %>">
             Open
@@ -54,9 +61,10 @@
 
         <% if @routine_night %>
           <p><%= @routine_night.exercise.title %> - <%= @routine_night.completed ? "Completed" : "Not completed yet" %></p>
+          <p id="completed-night"><%= @routine_night.completed ? "Completed" : "Not completed yet" %></p>
 
           <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_night.repetition}.wav" %>
-          <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
+          <button type="button" class="btn btn-primary open-btn-modal-routine night" data-toggle="modal" data-target="#exampleModal"
                   data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
                   data-sound="<%= asset_url(exercise_asset_path) %>">
             Open

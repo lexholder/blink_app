@@ -11,10 +11,10 @@ const setPlayButton = (button, audio) => {
       if (window.audio && window.audio != audio){
         window.audio.pause();
         window.audio.currentTime = 0;
-        playButtons.forEach((button) => {
-          button.classList.remove('paused');
-          button.classList.remove('playing');
-          button.innerHTML = "<i class='far fa-play-circle'></i>";
+        playButtons.forEach((playButton) => {
+          playButton.classList.remove('paused');
+          playButton.classList.remove('playing');
+          playButton.innerHTML = "<i class='far fa-play-circle'></i>";
         })
       }
       window.audio = audio;
@@ -33,6 +33,14 @@ const setPlayButtonModal = (playButtonModal, audio) => {
     const playButtonInPage = playButtonInPageDiv.querySelector('button');
     playButtonInPage.classList = playButtonModal.classList;
     playButtonInPage.innerHTML = playButtonModal.innerHTML;
+    audio.addEventListener('ended', (event) => {
+      audio.pause();
+      audio.currentTime = 0;
+      playButtonModal.classList.remove('playing');
+      playButtonModal.innerHTML = "<i class='far fa-play-circle'></i>";
+      playButtonInPage.classList.remove('playing');
+      playButtonInPage.innerHTML = "<i class='far fa-play-circle'></i>";
+    })
   })
 };
 
@@ -41,6 +49,12 @@ const setplayButtons = () => {
     playButtons.forEach((button) => {
       const audio = new Audio(button.dataset.sound);
       setPlayButton(button, audio);
+      audio.addEventListener('ended', (event) => {
+        audio.pause();
+        audio.currentTime = 0;
+        button.classList.remove('playing');
+        button.innerHTML = "<i class='far fa-play-circle'></i>";
+      })
     });
   }
 };
@@ -85,6 +99,11 @@ const setModalExercises = () => {
   }
 };
 
+const updateHTMLForCompletedRoutine = (timeOfDay) => {
+  const completedElement = document.getElementById(`completed-${timeOfDay}`);
+  completedElement.innerText = "Completed";
+}
+
 
 const setModalRoutineExercises = () => {
   const openModalButtons = document.querySelectorAll('.open-btn-modal-routine');
@@ -103,6 +122,28 @@ const setModalRoutineExercises = () => {
             audio = window.audio;
           } else {
             setPlayButton(playButtonModal, audio);
+            audio.addEventListener('ended', (event) => {
+              audio.pause();
+              audio.currentTime = 0;
+              playButtonModal.classList.remove('playing');
+              playButtonModal.innerHTML = "<i class='far fa-play-circle'></i>";
+              let urlToUpdate = '';
+              if (openModalButton.classList.contains('morning')){
+                fetch('routines/complete_morning_routine', {
+                  method: "PATCH"
+                })
+                .then(() => {
+                  updateHTMLForCompletedRoutine('morning');
+                })
+              } else if (openModalButton.classList.contains('night')){
+                fetch('routines/complete_night_routine', {
+                  method: "PATCH"
+                })
+                .then(() => {
+                  updateHTMLForCompletedRoutine('night');
+                })
+              }
+            })
           }
         }
       })

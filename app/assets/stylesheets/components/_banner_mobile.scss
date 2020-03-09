@@ -1,10 +1,14 @@
 .banner-mobile {
+  display: flex;
+  height: 110px;
+}
 
-color: $soft-orange;
-position: absolute;
-width: 626.85px;
-height: 660.47px;
-left: -104px;
-top: -564px;
-
+.blink-header {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .blink-name{
+    font-weight: 300;
+  }
 }

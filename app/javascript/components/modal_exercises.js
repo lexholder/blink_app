@@ -11,10 +11,10 @@ const setPlayButton = (button, audio) => {
       if (window.audio && window.audio != audio){
         window.audio.pause();
         window.audio.currentTime = 0;
-        playButtons.forEach((button) => {
-          button.classList.remove('paused');
-          button.classList.remove('playing');
-          button.innerHTML = "<i class='far fa-play-circle'></i>";
+        playButtons.forEach((playButton) => {
+          playButton.classList.remove('paused');
+          playButton.classList.remove('playing');
+          playButton.innerHTML = "<i class='far fa-play-circle'></i>";
         })
       }
       window.audio = audio;
@@ -24,6 +24,12 @@ const setPlayButton = (button, audio) => {
       audio.play();
     }
   });
+  audio.addEventListener('ended', (event) => {
+    audio.pause();
+    audio.currentTime = 0;
+    button.classList.remove('playing');
+    button.innerHTML = "<i class='far fa-play-circle'></i>";
+  })
 };
 
 const setPlayButtonModal = (playButtonModal, audio) => {

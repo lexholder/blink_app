@@ -11,7 +11,8 @@
 
             <h2><%= exercise.title %></h2>
             <div class="play-btn-page-div" id='<%= exercise.id %>'>
-              <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url('sounds/exercise1.wav') %>">
+              <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
+              <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
                 <i class='far fa-play-circle'></i>
               </button>
             </div>

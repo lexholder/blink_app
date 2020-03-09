@@ -27,13 +27,25 @@
   <!-- Tab content -->
   <div id="Journal" class="tabcontent" style="display: block">
     <h3>Journal</h3>
-    <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
-      <% nb_hrs = (@computer_time.minutes / 60).floor %>
-      <% nb_min = @computer_time.minutes % 60 %>
-      <p>Computer time:
-        <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
-      </p>
+
+    <div id="board" data-city="<%= current_user.city %>">
+
+      <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
+        <% nb_hrs = (@computer_time.minutes / 60).floor %>
+        <% nb_min = @computer_time.minutes % 60 %>
+        <p>Computer time:
+          <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
+        </p>
+      </div>
+
+      <div id="weather-temperature"></div>
+      <img id="weather-icon">
+      <div id="weather-description"></div>
+      <div id="weather-humidity"></div>
+
+
     </div>
+
   </div>
 
   <div id="Blinking Exercises" class="tabcontent">

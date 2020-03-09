@@ -1,6 +1,7 @@
 class SettingsController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:toggle_eye_break_notification, :toggle_morning_notification, :toggle_night_notification]
   def edit
+    @tab = 'settings'
   end
 
   def toggle_morning_notification

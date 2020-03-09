@@ -9,6 +9,7 @@
 puts "Cleaning"
 
 ComputerTime.destroy_all
+Setting.destroy_all
 User.destroy_all
 Routine.destroy_all
 Exercise.destroy_all

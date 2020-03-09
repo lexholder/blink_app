@@ -2,31 +2,34 @@
 
   <div class="container">
 
-    <h1>Blinking Exercises</h1>
+    <%= render 'shared/banner_mobile' %>
 
-    <ul>
+    <div class="title-underlined">
+      <h2 class="title">EXERCISES</h2>
+    </div>
+
       <% @exercises.each do |exercise| %>
-        <li class="mb-3">
-          <div class="d-flex justify-content-between">
 
-            <h2><%= exercise.title %></h2>
-            <div class="play-btn-page-div" id='<%= exercise.id %>'>
-              <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
-              <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
-                <i class='far fa-play-circle'></i>
-              </button>
-            </div>
+        <div class="card-exercise">
 
+          <h2><%= exercise.title %></h2>
+          <div class="play-btn-page-div" id='<%= exercise.id %>'>
+            <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
+            <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
+              <i class='far fa-play-circle'></i>
+            </button>
           </div>
+
           <p><%= exercise.summary %></p>
           <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"
                   data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>'
                   data-playid = '<%= exercise.id %>' >
             Read instructions
           </button>
-        </li>
+
+        </div>
+
       <% end %>
-    </ul>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

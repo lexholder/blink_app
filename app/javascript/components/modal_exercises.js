@@ -99,6 +99,11 @@ const setModalExercises = () => {
   }
 };
 
+const updateHTMLForCompletedRoutine = (timeOfDay) => {
+  const completedElement = document.getElementById(`completed-${timeOfDay}`);
+  completedElement.innerText = "Completed";
+}
+
 
 const setModalRoutineExercises = () => {
   const openModalButtons = document.querySelectorAll('.open-btn-modal-routine');
@@ -118,11 +123,26 @@ const setModalRoutineExercises = () => {
           } else {
             setPlayButton(playButtonModal, audio);
             audio.addEventListener('ended', (event) => {
-              console.log('end');
               audio.pause();
               audio.currentTime = 0;
               playButtonModal.classList.remove('playing');
               playButtonModal.innerHTML = "<i class='far fa-play-circle'></i>";
+              let urlToUpdate = '';
+              if (openModalButton.classList.contains('morning')){
+                fetch('routines/complete_morning_routine', {
+                  method: "PATCH"
+                })
+                .then(() => {
+                  updateHTMLForCompletedRoutine('morning');
+                })
+              } else if (openModalButton.classList.contains('night')){
+                fetch('routines/complete_night_routine', {
+                  method: "PATCH"
+                })
+                .then(() => {
+                  updateHTMLForCompletedRoutine('night');
+                })
+              }
             })
           }
         }

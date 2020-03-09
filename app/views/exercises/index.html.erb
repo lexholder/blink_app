@@ -10,7 +10,7 @@
 
       <% @exercises.each do |exercise| %>
 
-        <div class="card-exercise">
+        <div class="card-blink">
 
           <h2><%= exercise.title %></h2>
           <div class="play-btn-page-div" id='<%= exercise.id %>'>
@@ -21,11 +21,12 @@
           </div>
 
           <p><%= exercise.summary %></p>
-          <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>'
-                  data-playid = '<%= exercise.id %>' >
-            Read instructions
-          </button>
+
+          <div type="button" class="open-btn-modal card-blink-footer" data-toggle="modal" data-target="#exampleModal"
+                    data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>'
+                    data-playid = '<%= exercise.id %>' >
+              Read instructions
+          </div>
 
         </div>
 

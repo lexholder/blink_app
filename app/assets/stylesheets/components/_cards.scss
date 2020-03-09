@@ -1,4 +1,16 @@
-.card-exercise {
+.card-blink {
   border-radius: 16px;
   background-color: $sepia;
+  margin-bottom: 22px;
+  padding: 0 8px;
+  padding-top: 8px;
+}
+
+.card-blink-footer {
+  border-top: 0.5px solid $soft-orange;
+  text-align: center;
+  color: $hard-orange;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 12px;
 }

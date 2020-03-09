@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Recommendation
 
   def self.recommend_repetitions_morning(user)
@@ -63,7 +65,8 @@ class Recommendation
   private
 
   def self.fetch_weather_infos(user)
-    city = user.city
+    city = user.city.split(',').map{ |el| el.split().join('%20')}.join(',')
+           .encode("ASCII", "UTF-8", undef: :replace, replace: '')
     url = "https://api.openweathermap.org/data/2.5/weather?q=#{city}&units=metric&appid=#{ENV["WEATHER_KEY"]}"
     return JSON.parse(open(url).read)
   end
@@ -75,5 +78,4 @@ class Recommendation
   def self.fetch_temperature(user)
     fetch_weather_infos(user)["main"]["temp"]
   end
-
 end

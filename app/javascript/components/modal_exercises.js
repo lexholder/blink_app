@@ -24,12 +24,6 @@ const setPlayButton = (button, audio) => {
       audio.play();
     }
   });
-  audio.addEventListener('ended', (event) => {
-    audio.pause();
-    audio.currentTime = 0;
-    button.classList.remove('playing');
-    button.innerHTML = "<i class='far fa-play-circle'></i>";
-  })
 };
 
 const setPlayButtonModal = (playButtonModal, audio) => {
@@ -39,6 +33,14 @@ const setPlayButtonModal = (playButtonModal, audio) => {
     const playButtonInPage = playButtonInPageDiv.querySelector('button');
     playButtonInPage.classList = playButtonModal.classList;
     playButtonInPage.innerHTML = playButtonModal.innerHTML;
+    audio.addEventListener('ended', (event) => {
+      audio.pause();
+      audio.currentTime = 0;
+      playButtonModal.classList.remove('playing');
+      playButtonModal.innerHTML = "<i class='far fa-play-circle'></i>";
+      playButtonInPage.classList.remove('playing');
+      playButtonInPage.innerHTML = "<i class='far fa-play-circle'></i>";
+    })
   })
 };
 
@@ -47,6 +49,12 @@ const setplayButtons = () => {
     playButtons.forEach((button) => {
       const audio = new Audio(button.dataset.sound);
       setPlayButton(button, audio);
+      audio.addEventListener('ended', (event) => {
+        audio.pause();
+        audio.currentTime = 0;
+        button.classList.remove('playing');
+        button.innerHTML = "<i class='far fa-play-circle'></i>";
+      })
     });
   }
 };

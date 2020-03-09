@@ -16,7 +16,7 @@ class RoutinesController < ApplicationController
 
   def fetch_weather
     city = current_user.city.split(',').map{ |el| el.split().join('%20')}.join(',')
-    url = "https://api.openweathermap.org/data/2.5/weather?q=#{}&units=metric&appid=#{ENV["WEATHER_KEY"]}"
+    url = "https://api.openweathermap.org/data/2.5/weather?q=#{city}&units=metric&appid=#{ENV["WEATHER_KEY"]}"
     data = JSON.parse(open(url).read)
     render json: data
   end

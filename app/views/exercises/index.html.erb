@@ -10,22 +10,33 @@
 
       <% @exercises.each do |exercise| %>
 
-        <div class="card-exercise">
+        <div class="card-blink">
 
-          <h2><%= exercise.title %></h2>
-          <div class="play-btn-page-div" id='<%= exercise.id %>'>
-            <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
-            <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
-              <i class='far fa-play-circle'></i>
-            </button>
+          <div class="card-blink-content exercise">
+
+
+            <div class="card-blink-play-part">
+              <div class="play-btn-page-div" id='<%= exercise.id %>'>
+                <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
+                <div class="play-btn button" data-sound="<%= asset_url(exercise_asset_path) %>">
+                  <i class='fas fa-play-circle'></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-blink-infos exercise">
+              <h2><%= exercise.title %></h2>
+              <p><%= exercise.summary %></p>
+            </div>
+
           </div>
 
-          <p><%= exercise.summary %></p>
-          <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>'
-                  data-playid = '<%= exercise.id %>' >
-            Read instructions
-          </button>
+
+          <div type="button" class="open-btn-modal card-blink-footer" data-toggle="modal" data-target="#exampleModal"
+                    data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>'
+                    data-playid = '<%= exercise.id %>' >
+              Read instructions
+          </div>
 
         </div>
 

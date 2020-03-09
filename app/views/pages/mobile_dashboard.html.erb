@@ -31,9 +31,10 @@
 
           <p><%= @routine_morning.exercise.title %> - <%= @routine_morning.completed ? "Completed" : "Not completed yet" %></p>
 
+          <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
           <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-duration='<%= @routine_morning.duration %>'
-                  data-sound="<%= asset_url('sounds/exercise1.wav') %>">
+                  data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
+                  data-sound="<%= asset_url(exercise_asset_path) %>">
             Open
           </button>
 
@@ -51,9 +52,10 @@
         <% if @routine_night %>
           <p><%= @routine_night.exercise.title %> - <%= @routine_night.completed ? "Completed" : "Not completed yet" %></p>
 
+          <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_night.repetition}.wav" %>
           <button type="button" class="btn btn-primary open-btn-modal-routine" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-duration='<%= @routine_night.duration %>'
-                  data-sound="<%= asset_url('sounds/exercise1.wav') %>">
+                  data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
+                  data-sound="<%= asset_url(exercise_asset_path) %>">
             Open
           </button>
 
@@ -76,11 +78,12 @@
             <h2 id="title-in-modal"></h2>
             <div id="play-btn-modal-div">
               <button class="btn btn-primary btn-lg">
-                Play
+                <i class='far fa-play-circle'></i>
               </button>
             </div>
             <ul id="directions-list-in-modal">
             </ul>
+            <p>Nb of repetitions: <span id="repetition"></span> </p>
           </div>
         </div>
       </div>

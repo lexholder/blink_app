@@ -9,6 +9,7 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 console.log("Hello from app/javascript/packs/application.js");
 window.setModalExercises = setModalExercises;
 window.setModalRoutineExercises = setModalRoutineExercises;
+window.fillInModalResource = fillInModalResource;
 
 
 window.setModalExercises();

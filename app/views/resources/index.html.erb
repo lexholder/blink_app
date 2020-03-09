@@ -4,23 +4,47 @@
 
     <%= render 'shared/banner_mobile' %>
 
-    <h1>Resources</h1>
+    <div class="title-underlined">
+      <h2 class="title">RESOURCES</h2>
+    </div>
+
+    <div class="card-blink">
+
+      <div class="card-blink-content">
+
+        <div class="card-blink-infos">
+          <h2>Why Blink?</h2>
+          <p> Learn why our devices wan cause dry eyes.</p>
+        </div>
+
+      </div>
 
 
-    <h1>Why Blink?</h1>
-    <p>Sumamary (to do)</p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+      <div type="button" class="card-blink-footer" data-toggle="modal" data-target="#exampleModal"
             onclick="window.fillInModalResource('Why Blink?')">
-      Open
-    </button>
+        Read Article
+      </div>
 
-    <h1>Tips For Great Eye Hygiene!</h1>
-    <p>Sumamary (to do)</p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+    </div>
+
+    <div class="card-blink">
+
+      <div class="card-blink-content">
+
+        <div class="card-blink-infos">
+          <h2>Tips For Great Eye Hygiene!</h2>
+          <p> Learn how to take care of your eyes and reduce dry eye symptoms.</p>
+        </div>
+
+      </div>
+
+
+      <div type="button" class="card-blink-footer" data-toggle="modal" data-target="#exampleModal"
             onclick="window.fillInModalResource('Tips For Great Eye Hygiene!')">
-      Open
-    </button>
+        Read Article
+      </div>
 
+    </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">

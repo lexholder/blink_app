@@ -45,13 +45,17 @@ const setplayButtons = () => {
   }
 };
 
-const fillInModalContent = (title, directions, duration) => {
+const fillInModalContent = (title, directions, repetition) => {
   document.getElementById("title-in-modal").innerText = title;
   let directionListHTML = "";
   directions.split("/").forEach( direction => {
     directionListHTML = directionListHTML + `<li>${direction}</li>`
   });
   document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
+  const nbRepetitions = document.getElementById("repetition");
+  if (nbRepetitions){
+    nbRepetitions.innerText = repetition;
+  }
 };
 
 const setModalExercises = () => {
@@ -61,8 +65,8 @@ const setModalExercises = () => {
       openModalButton.addEventListener('click', (event) => {
         const title = event.currentTarget.dataset.title;
         const directions = event.currentTarget.dataset.directions;
-        const duration = event.currentTarget.dataset.duration;
-        fillInModalContent(title, directions, duration);
+        const repetition = event.currentTarget.dataset.repetition;
+        fillInModalContent(title, directions, repetition);
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
           const playButtonInPageDiv = document.getElementById(event.currentTarget.dataset.playid);
@@ -89,13 +93,17 @@ const setModalRoutineExercises = () => {
       openModalButton.addEventListener('click', (event) => {
         const title = event.currentTarget.dataset.title;
         const directions = event.currentTarget.dataset.directions;
-        const duration = event.currentTarget.dataset.duration;
-        fillInModalContent(title, directions, duration);
+        const repetition = event.currentTarget.dataset.repetition;
+        fillInModalContent(title, directions, repetition);
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
           const playButtonModal = playButtonModalDiv.querySelector('button');
-          const audio = new Audio(openModalButton.dataset.sound);
-          setPlayButton(playButtonModal, audio);
+          let audio = new Audio(openModalButton.dataset.sound);
+          if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
+            audio = window.audio;
+          } else {
+            setPlayButton(playButtonModal, audio);
+          }
         }
       })
     })

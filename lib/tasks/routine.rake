@@ -5,11 +5,11 @@ namespace :routine do
     users.each do |user|
       offset = rand(Exercise.count)
       rand_exercise = Exercise.offset(offset).first
-      Routine.create!({user: user, exercise: rand_exercise, date: Date.today, time_of_day: "morning", completed: false, duration: 60})
+      Routine.create!({user: user, exercise: rand_exercise, date: Date.today, time_of_day: "morning", completed: false, repetition: 4})
 
       offset = rand(Exercise.count)
       rand_exercise = Exercise.offset(offset).first
-      Routine.create!({user: user, exercise: rand_exercise, date: Date.today, time_of_day: "night", completed: false, duration: 60})
+      Routine.create!({user: user, exercise: rand_exercise, date: Date.today, time_of_day: "night", completed: false, repetition: 4})
     end
   end
 

@@ -18,5 +18,5 @@ class UserMailer < ApplicationMailer
   end
 end
 
-# user = User.find_by(email: "the.blink.app367@gmail.com")
+# user = User.find_by(email: "ines.belghiti@gmail.com")
 # UserMailer.with(user: user).morning_notification.deliver_now

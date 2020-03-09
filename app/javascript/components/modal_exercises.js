@@ -5,7 +5,7 @@ const setPlayButton = (button, audio) => {
     if (event.currentTarget.classList.contains('playing')){
       event.currentTarget.classList.remove('playing');
       event.currentTarget.classList.add('paused');
-      event.currentTarget.innerHTML = "<i class='fas fa-play-circle'></i>";
+      event.currentTarget.innerHTML = "<i class='far fa-play-circle'></i>";
       audio.pause();
     } else {
       if (window.audio && window.audio != audio){
@@ -14,7 +14,7 @@ const setPlayButton = (button, audio) => {
         playButtons.forEach((playButton) => {
           playButton.classList.remove('paused');
           playButton.classList.remove('playing');
-          playButton.innerHTML = "<i class='far fa-play-circle'></i>";
+          playButton.innerHTML = "<i class='fas fa-play-circle'></i>";
         })
       }
       window.audio = audio;
@@ -30,16 +30,16 @@ const setPlayButtonModal = (playButtonModal, audio) => {
   setPlayButton(playButtonModal, audio);
   playButtonModal.addEventListener('click', (event) => {
     const playButtonInPageDiv = document.getElementById(playButtonModal.dataset.playid);
-    const playButtonInPage = playButtonInPageDiv.querySelector('button');
+    const playButtonInPage = playButtonInPageDiv.querySelector('.button');
     playButtonInPage.classList = playButtonModal.classList;
     playButtonInPage.innerHTML = playButtonModal.innerHTML;
     audio.addEventListener('ended', (event) => {
       audio.pause();
       audio.currentTime = 0;
       playButtonModal.classList.remove('playing');
-      playButtonModal.innerHTML = "<i class='far fa-play-circle'></i>";
+      playButtonModal.innerHTML = "<i class='fas fa-play-circle'></i>";
       playButtonInPage.classList.remove('playing');
-      playButtonInPage.innerHTML = "<i class='far fa-play-circle'></i>";
+      playButtonInPage.innerHTML = "<i class='fas fa-play-circle'></i>";
     })
   })
 };
@@ -53,7 +53,7 @@ const setplayButtons = () => {
         audio.pause();
         audio.currentTime = 0;
         button.classList.remove('playing');
-        button.innerHTML = "<i class='far fa-play-circle'></i>";
+        button.innerHTML = "<i class='fas fa-play-circle'></i>";
       })
     });
   }
@@ -84,9 +84,9 @@ const setModalExercises = () => {
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
           const playButtonInPageDiv = document.getElementById(event.currentTarget.dataset.playid);
-          const playButtonInPage = playButtonInPageDiv.querySelector('button');
+          const playButtonInPage = playButtonInPageDiv.querySelector('.button');
           playButtonModalDiv.innerHTML = playButtonInPage.outerHTML;
-          const playButtonModal = playButtonModalDiv.querySelector('button');
+          const playButtonModal = playButtonModalDiv.querySelector('.button');
           playButtonModal.dataset.playid = event.currentTarget.dataset.playid;
           let audio = new Audio(playButtonModal.dataset.sound);
           if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
@@ -116,7 +116,7 @@ const setModalRoutineExercises = () => {
         fillInModalContent(title, directions, repetition);
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
-          const playButtonModal = playButtonModalDiv.querySelector('button');
+          const playButtonModal = playButtonModalDiv.querySelector('.button');
           let audio = new Audio(openModalButton.dataset.sound);
           if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
             audio = window.audio;
@@ -126,7 +126,7 @@ const setModalRoutineExercises = () => {
               audio.pause();
               audio.currentTime = 0;
               playButtonModal.classList.remove('playing');
-              playButtonModal.innerHTML = "<i class='far fa-play-circle'></i>";
+              playButtonModal.innerHTML = "<i class='fas fa-play-circle'></i>";
               let urlToUpdate = '';
               if (openModalButton.classList.contains('morning')){
                 fetch('routines/complete_morning_routine', {

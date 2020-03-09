@@ -117,6 +117,13 @@ const setModalRoutineExercises = () => {
             audio = window.audio;
           } else {
             setPlayButton(playButtonModal, audio);
+            audio.addEventListener('ended', (event) => {
+              console.log('end');
+              audio.pause();
+              audio.currentTime = 0;
+              playButtonModal.classList.remove('playing');
+              playButtonModal.innerHTML = "<i class='far fa-play-circle'></i>";
+            })
           }
         }
       })

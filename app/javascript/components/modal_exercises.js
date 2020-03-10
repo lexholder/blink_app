@@ -101,7 +101,7 @@ const setModalExercises = () => {
 
 const updateHTMLForCompletedRoutine = (timeOfDay) => {
   const completedElement = document.getElementById(`completed-${timeOfDay}`);
-  completedElement.innerText = "Completed";
+  completedElement.innerHTML = `<img src="assets/vectors/completed.svg">`;
 }
 
 
@@ -153,4 +153,4 @@ const setModalRoutineExercises = () => {
 
 
 
-export { setplayButtons, setModalExercises, setModalRoutineExercises };
+export { setplayButtons, setModalExercises, setModalRoutineExercises, updateHTMLForCompletedRoutine };

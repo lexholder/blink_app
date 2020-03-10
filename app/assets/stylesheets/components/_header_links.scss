@@ -5,7 +5,6 @@
   text-decoration: none;
 }
 
-
 .desktop_header_links {
   display: flex;
   -webkit-box-pack: end;
@@ -16,4 +15,15 @@
   top: 0;
   right: 0;
   text-decoration: none;
+}
+
+.mobile-sign-out {
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  padding-right: 28px;
+  padding-top: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

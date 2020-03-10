@@ -1,6 +1,6 @@
 <div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/navbarpagesbacks.svg' %>)">
 
-  <div class="container">
+  <div class="container container-blink">
 
     <%= render 'shared/banner_mobile' %>
 
@@ -8,7 +8,7 @@
       <h2 class="title"><%= Date.today.strftime("%a %B %e").upcase %></h2>
     </div>
 
-    <div class="d-flex justify-content-center">
+    <div class="board-part">
 
       <div id="board" data-city="<%= current_user.city %>">
 
@@ -82,50 +82,52 @@
 
     <div class="routines">
 
-      <div class="routine-morning">
+      <% if @routine_morning %>
 
-        <h3>Your morning routine</h3>
+        <div class="routine">
+            <div id="completed-morning">
+              <%= image_tag (asset_url("vectors/completed#{"_not" unless @routine_morning.completed}")) %>
+            </div>
 
-        <% if @routine_morning %>
+            <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
 
-          <p><%= @routine_morning.exercise.title %> </p>
-          <p id="completed-morning"><%= @routine_morning.completed ? "Completed" : "Not completed yet" %></p>
-
-          <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-          <button type="button" class="btn btn-primary open-btn-modal-routine morning" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
-                  data-sound="<%= asset_url(exercise_asset_path) %>">
-            Open
-          </button>
-
-        <% else %>
-          <p>No routine, sorry!</p>
-        <% end %>
-
-      </div>
+            <div type="button" class="card-blink card-routine open-btn-modal-routine morning" data-toggle="modal" data-target="#exampleModal"
+                    data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
+                    data-sound="<%= asset_url(exercise_asset_path) %>">
+                <h2> MORNING </h2>
+                <div class="routine-infos">
+                  <p><%= @routine_morning.exercise.title %></p>
+                  <p><%= @routine_morning.repetition %> rep</p>
+                </div>
+            </div>
 
 
-      <div class="routine-nigth">
-
-        <h3>Your night routine</h3>
-
-        <% if @routine_night %>
-          <p><%= @routine_night.exercise.title %> - <%= @routine_night.completed ? "Completed" : "Not completed yet" %></p>
-          <p id="completed-night"><%= @routine_night.completed ? "Completed" : "Not completed yet" %></p>
-
-          <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_night.repetition}.wav" %>
-          <button type="button" class="btn btn-primary open-btn-modal-routine night" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
-                  data-sound="<%= asset_url(exercise_asset_path) %>">
-            Open
-          </button>
-
-        <% else %>
-          <p>No routine, sorry!</p>
-        <% end %>
+        </div>
+      <% end %>
 
 
-      </div>
+      <% if @routine_night %>
+
+        <div class="routine">
+            <div id="completed-night">
+              <%= image_tag (asset_url("vectors/completed#{"_not" unless @routine_night.completed}")) %>
+            </div>
+
+            <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
+
+            <div type="button" class="card-blink card-routine open-btn-modal-routine night" data-toggle="modal" data-target="#exampleModal"
+                    data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
+                    data-sound="<%= asset_url(exercise_asset_path) %>">
+                <h2> NIGHT </h2>
+                <div class="routine-infos">
+                  <p><%= @routine_night.exercise.title %></p>
+                  <p><%= @routine_night.repetition %> rep</p>
+                </div>
+            </div>
+
+
+        </div>
+      <% end %>
 
 
       <div class="modal fade modal-blink exercise" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -146,7 +148,7 @@
                 <h2 id="title-in-modal"></h2>
                 <ul id="directions-list-in-modal">
                 </ul>
-                <p>Nb of repetitions: <span id="repetition"></span> </p>
+                <p class="repetitions">Repeat <span id="repetition"></span> times.</p>
               </div>
             </div>
           </div>

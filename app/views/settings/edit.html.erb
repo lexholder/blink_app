@@ -1,28 +1,42 @@
 <div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/navbarpagesbacks.svg' %>)">
-  <div class="container">
+  <div class="container container-blink">
 
-    <%= render 'shared/banner_mobile' %>
+  <%= render 'shared/banner_mobile' %>
+<div class="mobile-sign-out">
+  <div class="title-underlined">
+    <div class="title">
+    <%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+</div>
 
-    <h1>Settings</h1>
+<div class="title-underlined"><p class="title">SETTINGS</p></div>
 
-    <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="switch-morning" <%= 'checked' if current_user.setting.morning_notification_active %>>
-      <label class="custom-control-label" for="switch-morning">Morning routine notification</label>
+
+    <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+      <p class="notification-title">MORNING NOTIFICATION</p>
+      <div class="toggle-div">
+        <input type="checkbox" class="custom-control-input" id="switch-morning" <%= 'checked' if current_user.setting.morning_notification_active %>>
+        <label class="custom-control-label" for="switch-morning"></label>
+        <div hidden id='morning-notification-active'><%= current_user.setting.morning_notification_active %></div>
+      </div>
     </div>
 
-    <div hidden id='morning-notification-active'><%= current_user.setting.morning_notification_active %></div>
 
-
-    <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="switch-night" <%= 'checked' if current_user.setting.night_notification_active %>>
-      <label class="custom-control-label" for="switch-night">Night routine notification</label>
+    <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+      <p class="notification-title">NIGHT NOTIFICATION</p>
+      <div class="toggle-div">
+        <input type="checkbox" class="custom-control-input" id="switch-night" <%= 'checked' if current_user.setting.night_notification_active %>>
+        <label class="custom-control-label" for="switch-night"></label>
+        <div hidden id='night-notification-active'><%= current_user.setting.night_notification_active %></div>
+      </div>
     </div>
 
-    <div hidden id='night-notification-active'><%= current_user.setting.night_notification_active %></div>
-
-     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-
-
+    <div class="form-inputs">
+      <input type="search" id="city-input" class="update" value=<%= current_user.city %>/>
+    </div>
   </div>
 <%= render 'shared/footer' %>
 </div>
+
+

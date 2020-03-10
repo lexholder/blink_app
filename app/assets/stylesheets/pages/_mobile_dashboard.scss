@@ -1,0 +1,24 @@
+.routine {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 22px;
+  #completed-night {
+    position: relative;
+    &:before {
+      content: "";
+      width: 1px;
+      height: 40px;
+      background: rgba(77,77,77,0.16);
+      position: absolute;
+      top: calc(12px - (96px/2) - 20px);
+      left: calc(50% - 0.5px );
+    }
+  }
+}
+
+.board-part {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 7%;
+}

@@ -32,8 +32,10 @@
       </div>
     </div>
 
-    <div class="form-inputs">
-      <input type="search" id="city-input" class="update" value=<%= current_user.city %>/>
+    <div class="title-underlined"><p class="title">UPDATE YOUR CITY:</p></div>
+
+    <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+      <input type="" id="city-input" class="update" value="<%= current_user.city %>"/>
     </div>
   </div>
 <%= render 'shared/footer' %>

@@ -73,4 +73,4 @@ const eyeBreakNotifications = () => {
 };
 
 
-export { eyeBreakNotifications, eyeBreakNotificationForDemo };
+export { eyeBreakNotifications };

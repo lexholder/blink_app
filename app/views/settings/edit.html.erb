@@ -13,7 +13,7 @@
 <div class="title-underlined"><p class="title">SETTINGS</p></div>
 
 
-    <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+    <div class="custom-control custom-switch card-blink toggle-button-container mobile-settings text-center">
       <p class="notification-title">MORNING NOTIFICATION</p>
       <div class="toggle-div">
         <input type="checkbox" class="custom-control-input" id="switch-morning" <%= 'checked' if current_user.setting.morning_notification_active %>>
@@ -23,7 +23,7 @@
     </div>
 
 
-    <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+    <div class="custom-control custom-switch card-blink toggle-button-container mobile-settings text-center">
       <p class="notification-title">NIGHT NOTIFICATION</p>
       <div class="toggle-div">
         <input type="checkbox" class="custom-control-input" id="switch-night" <%= 'checked' if current_user.setting.night_notification_active %>>

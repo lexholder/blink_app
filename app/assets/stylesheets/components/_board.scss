@@ -1,0 +1,117 @@
+#board {
+  .board-bottom, .board-top {
+    display: flex;
+  }
+  .board-top {
+    margin-bottom: 8px;
+  }
+}
+
+
+.board-section {
+  background: rgba(255, 228, 228, 0.6);
+  height: 70px;
+  width: 76px;
+  position: relative;
+  .board-label {
+    font-weight: 500;
+    font-size: 7px;
+    line-height: 9px;
+  }
+}
+
+.board-section.top-left {
+  border-radius: 24px 0px 0px 24px;
+  margin-right: 8px;
+  .board-label {
+    position: absolute;
+    bottom: 7%;
+    right: 9%;
+  }
+}
+.board-section.top-right {
+  border-radius: 0px 24px 24px 0px;
+  .board-label {
+    position: absolute;
+    bottom: 7%;
+    left: 9%;
+  }
+}
+.board-section.bottom-left {
+  border-radius: 24px 0px 0px 24px;
+  margin-right: 8px;
+  .board-label {
+    position: absolute;
+    bottom: 7%;
+    right: 9%;
+  }
+}
+.board-section.bottom-right {
+  border-radius: 0px 24px 24px 0px;
+  .board-label {
+    position: absolute;
+    bottom: 7%;
+    left: 9%;
+  }
+}
+
+img#weather-icon {
+  filter: contrast(0) sepia(100%) hue-rotate(0deg) saturate(2000%) brightness(100%);
+  -webkit-filter: contrast(0) sepia(100%) hue-rotate(0deg) saturate(2000%) brightness(100%);
+  width: 60px;
+  display: block;
+  margin-top: 3%;
+  margin-left: 10%;
+}
+
+img#computer-icon {
+  display: block;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: 7%;
+}
+
+.computer-time {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  width: 50%;
+  text-align: center;
+  p {
+    font-size: 10px;
+  }
+}
+
+.board-content.temperature {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  #weather-temperature {
+    position: absolute;
+    right: 30%;
+    bottom: 27%;
+    font-size: 24px;
+  }
+  #weather-degrees {
+    position: absolute;
+    right: 11%;
+    top: 18%;
+    font-size: 14px;
+  }
+}
+
+.board-section.humidity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5%;
+}
+.board-content.humidity {
+  display: flex;
+  img {
+    margin-left: 3px;
+  }
+  #weather-humidity {
+    font-size: 24px;
+  }
+}

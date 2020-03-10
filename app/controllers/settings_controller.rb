@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  skip_before_action :verify_authenticity_token, :only => [:toggle_eye_break_notification, :toggle_morning_notification, :toggle_night_notification]
+  skip_before_action :verify_authenticity_token, :only => [:update_city, :toggle_eye_break_notification, :toggle_morning_notification, :toggle_night_notification]
   def edit
     @tab = 'settings'
   end
@@ -20,10 +20,9 @@ class SettingsController < ApplicationController
     end
   end
 
-  def update_night_time
-  end
-
-  def update_morning_time
+  def update_city
+    new_city = JSON.parse(request.body.read)['city']
+    current_user.update(city: new_city)
   end
 
   def toggle_eye_break_notification

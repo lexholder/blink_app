@@ -16,7 +16,6 @@
   }
 }
 
-
 .card-blink-content.exercise {
   display: flex;
 }
@@ -38,6 +37,12 @@
 
 .card-blink-infos.exercise {
   width: 70%;
+}
+
+.card-toggle-button {
+  border-radius: 16px;
+  background-color: $sepia;
+  margin-bottom: 22px;
 }
 
 .card-blink-play-part {

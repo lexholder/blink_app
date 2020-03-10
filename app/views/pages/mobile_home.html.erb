@@ -1,23 +1,62 @@
-<div style="width: 100vw; height: 2120px; background-image: url(<%= asset_url 'backgrounds/landingpage.svg' %>)">
-
-  <div class="container">
-
-    <div class="text-center">
-      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+<div class="landing_header_mobile_background"></div>
+  <div class="landing_header_mobile container">
+    <div class="header_links">
+      <div class="title-underlined">
+        <%= link_to "SIGN UP", new_registration_path(resource_name), class: "title" %>
+      </div>
+      <div class="title-underlined">
+        <%= link_to "LOGIN", new_user_session_path, class: "title" %>
+      </div>
     </div>
-
-    <div class="text-center">
-      <%= link_to "Sign up", new_registration_path(resource_name) %><br />
-    </div>
-
-    </div>
-
+      <div class="text-center">
+        <h1>BLINK <%= image_tag("logo-blink.svg", height:"63.6", width:"32", alt:"vector") %></h1>
+        <br><br>
+        <h3>Show your eyes <br> some love</h3>
+      </div>
   </div>
 
+<div class="landing_body text-center">
+  <div class="mb-5 text-center container">
+    <div class="viewheight">
+
+     <%= image_tag("vectors/landingvector1.svg", height:"231", width:"146", alt:"vector") %>
+
+        <p>We spend a lot of time on screens. Unfortunately, the more time we spend looking at devices,
+        the more susceptible we are to dry eyes. Screens reduce the amount we blink from an average of
+        15 times a minute to around five.</p>
+
+    </div>
+
+      <div class="viewheight">
+
+        <%= image_tag("vectors/landingvector2.svg", height:"231", width:"146", alt:"vector") %>
+
+
+        <p>There are ways to combat dry eye symptoms. Research recommends taking a one minute break from looking at screens every 20 minutes.
+        That’s why BLINK will send you a desktop notification letting you know it’s time to give your eyes a rest.</p>
+
+      </div>
+
+      <div class="viewheight">
+        <%= image_tag("vectors/landingvector3.svg", height:"231", width:"146", alt:"vector") %>
+
+        <p class="mb-5">There are ways to retrain your brain to blink more often. This is why BLINK keeps track of daily recommended blinking exercises to improve both eye health and habits. The tools to feel better are at your fingertips!</p>
+      </div>
+
+      <div class="container" style="padding-top: 90px">
+
+        <%= link_to "SIGN UP", new_registration_path(resource_name), class:"button btn btn-outline-success mb-3" %>
+
+        <div>
+          <%= link_to "Log in", new_user_session_path %>
+        </div>
+
+      </div>
+    <% if current_user %>
+      <% link_to 'Take me to my dashboard', dashboard_path %>
+    <% end %>
+  </div>
 </div>
 
-<div class="mb-5 text-center">
-  <% if current_user %>
-    <%= link_to 'Take me to my dashboard', dashboard_path %>
-  <% end %>
-</div>
+
+

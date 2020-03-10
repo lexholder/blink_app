@@ -40,7 +40,7 @@
             <div class="board-content">
               <%= image_tag (asset_url('vectors/computer')), id:"computer-icon" %>
               <div class="computer-time">
-<!--                 <% if @computer_time %>
+                <% if @computer_time %>
 
                   <% nb_hrs = (@computer_time.minutes / 60).floor %>
                   <% nb_min = @computer_time.minutes % 60 %>
@@ -50,7 +50,7 @@
 
                 <% else %>
                   <p>Unavailable.</p>
-                <% end %> -->
+                <% end %>
               </div>
             </div>
             <div class="board-label">
@@ -58,8 +58,8 @@
             </div>
           </div>
 
-          <div class="board-section bottom-right">
-            <div class="board-content">
+          <div class="board-section humidity bottom-right">
+            <div class="board-content humidity">
               <div id="weather-humidity"></div>
               <%= image_tag (asset_url('vectors/humidity')) %>
             </div>

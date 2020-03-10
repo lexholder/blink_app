@@ -66,14 +66,23 @@ img#weather-icon {
 }
 
 img#computer-icon {
-  // position: absolute;
-  // margin: auto;
-  // top: 10;
-  // left: 0;
-  // right: 0;
   display: block;
   margin-top: 3px;
   margin-left: auto;
   margin-right: 6px;
 }
 
+.board-section.humidity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.board-content.humidity {
+  display: flex;
+  img {
+    margin-left: 3px;
+  }
+  #weather-humidity {
+    font-size: 24px;
+  }
+}

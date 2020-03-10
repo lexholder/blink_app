@@ -1,8 +1,7 @@
 const displayWeather = (data) => {
-  console.log(data);
-  document.getElementById("weather-temperature").innerText = `${Math.round(data.main.temp)}°C`;
-  document.getElementById("weather-humidity").innerText = `${Math.round(data.main.humidity)}%`;
-  document.getElementById("weather-description").innerText = data.weather[0].description;
+  document.getElementById("weather-temperature").innerText = `${Math.round(data.main.temp)}`;
+  document.getElementById("weather-humidity").innerText = `${Math.round(data.main.humidity)}`;
+  document.getElementById("weather-description").innerText = data.weather[0].description.toUpperCase();
   const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   document.getElementById("weather-icon").src = iconURL;
 };

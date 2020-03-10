@@ -1,5 +1,5 @@
 <div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/navbarpagesbacks.svg' %>)">
-  <div class="container">
+  <div class="container container-blink">
 
   <%= render 'shared/banner_mobile' %>
 <div class="mobile-sign-out">
@@ -32,11 +32,15 @@
       </div>
     </div>
 
-    <div class="title-underlined"><p class="title">UPDATE YOUR CITY:</p></div>
 
     <div class="custom-control custom-switch card-blink toggle-button-container text-center">
-      <input type="" id="city-input" class="update" value="<%= current_user.city %>"/>
+      <p class="notification-title">CURRENT CITY</p>
+      <div class="text-center">
+        <input type="" id="city-input" class="update" value="<%= current_user.city %>"/>
+      </div>
     </div>
+
+
   </div>
 <%= render 'shared/footer' %>
 </div>

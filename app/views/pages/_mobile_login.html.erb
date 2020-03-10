@@ -1,0 +1,40 @@
+<div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/mobile-form-background.svg' %>)">
+  <div class="landing_header_mobile container">
+    <div class="header_links">
+      <div class="title-underlined">
+        <%= link_to "SIGN UP", new_user_registration_path, class: "title" %>
+
+      </div>
+      <div class="title-underlined">
+        <%= link_to "LOGIN", new_user_session_path, class: "title" %>
+      </div>
+    </div>
+    <div class="text-center">
+      <h1>BLINK <%= image_tag("logo-blink.svg", height:"63.6", width:"32", alt:"vector") %></h1>
+    </div>
+  </div>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs container" id="loginForm">
+
+    <%= f.input :email,
+                label: false,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email", placeholder: 'EMAIL' } %>
+    <%= f.input :password,
+                label: false,
+                required: false,
+                input_html: { autocomplete: "current-password", placeholder: 'PASSWORD' } %>
+                <br><br>
+    <div style="margin: 0 29%">
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
+  </div>
+<div class="text-center">
+  <div class="form-actions desk-button button btn btn-outline-success mb-3 text-center">
+    <%= f.button :submit, "Log in" %>
+  </div>
+</div>
+<% end %>
+

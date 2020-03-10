@@ -1,0 +1,9 @@
+.background_desktop {
+    background-image: url(backgrounds/desktopback.svg);
+    height: 130vh;
+    width: 100vw;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

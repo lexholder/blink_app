@@ -1,1 +1,68 @@
-// Specific CSS for your home-page
+.landing_body {
+  background: linear-gradient(180deg, #F9F2E8 0%, #FFFFFF 14.97%);
+  border-radius: 0px 60px 60px 0px;
+}
+
+.landing_header_mobile {
+  height: 350px;
+  background: linear-gradient(180deg, #FF8552 0%, #FFFFFF 70.98%);
+  margin-bottom: -20px;
+  border-radius: 0 0 0 40px;
+}
+
+.landing_header_mobile_background {
+  height: 350px;
+  // position: absolute;
+  background-color: #F9F2E8;
+  width: 100%;
+  z-index: -1;
+}
+
+.landing_header_mobile h1 {
+  font-family: Poppins;
+  font-style: medium;
+  font-weight: 200;
+  font-size: 56px;
+  line-height: 84px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.21em;
+
+  color: #02196C;
+}
+
+.landing_vector {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.desktop_landing_grid {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  bottom: 0px;
+  width: 1100px;
+  height: 20%;
+  justify-content: center;
+
+}
+
+.desktop-card {
+  position: relative;
+  top: 140px;
+  bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  height: 384px;
+  padding: 15px;
+}
+
+.desk-button {
+  margin-bottom: 7%!important;
+  margin-top: 22%;
+}

@@ -40,13 +40,13 @@
 }
 
 .desktop_landing_grid {
-  position: absolute;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   bottom: 0px;
   width: 1100px;
-  margin: 20px 150px;
+  height: 20%;
+  justify-content: center;
 
 }
 
@@ -63,7 +63,6 @@
 }
 
 .desk-button {
-  position: absolute;
-  left: 534px;
-  top: 907px;
+  margin-bottom: 7%!important;
+  margin-top: 22%;
 }

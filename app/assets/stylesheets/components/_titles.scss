@@ -2,10 +2,12 @@
   display:inline-block;
   padding-right: 12px;
   border-bottom: 4px solid $hard-orange;
-  .title{
+  text-decoration: none;
+  .title {
     margin-bottom: 0px;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
+    text-decoration: none;
   }
 }

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, only: [:home, :signup, :login]
 
   def dashboard
     @routine_morning = current_user.routines.find { |r| r.date == Date.today && r.time_of_day == "morning"}
@@ -19,5 +19,4 @@ class PagesController < ApplicationController
       render :mobile_home
     end
   end
-
 end

@@ -82,27 +82,27 @@
 
     <div class="routines">
 
-      <div class="routine-morning">
+      <% if @routine_morning %>
 
-        <h3>Your morning routine</h3>
+        <div class="routine">
 
-        <% if @routine_morning %>
+            <p id="completed-morning"><%= @routine_morning.completed ? "Completed" : "Not completed yet" %></p>
 
-          <p><%= @routine_morning.exercise.title %> </p>
-          <p id="completed-morning"><%= @routine_morning.completed ? "Completed" : "Not completed yet" %></p>
+            <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
+            <div type="button" class="card-blink routine open-btn-modal-routine morning" data-toggle="modal" data-target="#exampleModal"
+                    data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
+                    data-sound="<%= asset_url(exercise_asset_path) %>">
+                <h2> MORNING </h2>
+                <div class="routine-infos">
+                  <p><%= @routine_morning.exercise.title %></p>
+                  <p><%= @routine_morning.repetition %> rep</p>
 
-          <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-          <button type="button" class="btn btn-primary open-btn-modal-routine morning" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
-                  data-sound="<%= asset_url(exercise_asset_path) %>">
-            Open
-          </button>
+                </div>
+            </div>
 
-        <% else %>
-          <p>No routine, sorry!</p>
-        <% end %>
 
-      </div>
+        </div>
+      <% end %>
 
 
       <div class="routine-nigth">

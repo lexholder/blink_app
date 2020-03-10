@@ -25,16 +25,16 @@
   margin-right: 8px;
   .board-label {
     position: absolute;
-    bottom: 5px;
-    right: 8px;
+    bottom: 7%;
+    right: 9%;
   }
 }
 .board-section.top-right {
   border-radius: 0px 24px 24px 0px;
   .board-label {
     position: absolute;
-    bottom: 5px;
-    left: 8px;
+    bottom: 7%;
+    left: 9%;
   }
 }
 .board-section.bottom-left {
@@ -42,16 +42,16 @@
   margin-right: 8px;
   .board-label {
     position: absolute;
-    bottom: 5px;
-    right: 8px;
+    bottom: 7%;
+    right: 9%;
   }
 }
 .board-section.bottom-right {
   border-radius: 0px 24px 24px 0px;
   .board-label {
     position: absolute;
-    bottom: 5px;
-    left: 8px;
+    bottom: 7%;
+    left: 9%;
   }
 }
 
@@ -60,16 +60,15 @@ img#weather-icon {
   -webkit-filter: contrast(0) sepia(100%) hue-rotate(0deg) saturate(2000%) brightness(100%);
   width: 60px;
   display: block;
-  margin-top: 3px;
-  margin-left: 6px;
-  margin-right: auto;
+  margin-top: 3%;
+  margin-left: 10%;
 }
 
 img#computer-icon {
   display: block;
-  margin-top: 3px;
+  margin-top: 5%;
   margin-left: auto;
-  margin-right: 6px;
+  margin-right: 7%;
 }
 
 .computer-time {

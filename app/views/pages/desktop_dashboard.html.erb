@@ -13,76 +13,76 @@
   </div>
 
 
-<div class="container">
+  <div class="container-blink-desktop">
 
 
+    <div class="d-flex justify-content-end">
 
-  <div class="custom-control custom-switch card-blink toggle-button-container text-center eye-break">
-    <p class="notification-title">EYE BREAK NOTIFICATION</p>
-    <div class="toggle-div">
-      <input type="checkbox" class="custom-control-input" id="switch-morning" <%= 'checked' if current_user.setting.morning_notification_active %>>
-      <label class="custom-control-label" for="switch-morning"></label>
-      <div hidden id='morning-notification-active'><%= current_user.setting.morning_notification_active %></div>
-    </div>
-  </div>
-
-<!--   <div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input" id="switch-eye-break" <%= 'checked' if current_user.setting.eye_break_notification_active %>>
-    <label class="custom-control-label" for="switch-eye-break">Eye break notification every 20 minutes</label>
-    <div hidden id='eye-break-notification-active'><%= current_user.setting.eye_break_notification_active %></div>
-  </div>
- -->
-
-
-
-  <!-- Tab links -->
-  <div class="tab">
-    <button class="tablinks active" onclick="window.openTabs(event, 'Journal')">Journal</button>
-    <button class="tablinks" onclick="window.openTabs(event, 'Blinking Exercises')">Blinking Exercises</button>
-    <button class="tablinks" onclick="window.openTabs(event, 'Resources')">Resources</button>
-    <button class="tablinks" onclick="window.openTabs(event, 'Settings')">Settings</button>
-  </div>
-
-  <!-- Tab content -->
-  <div id="Journal" class="tabcontent" style="display: block">
-    <h3>Journal</h3>
-
-    <div id="board" data-city="<%= current_user.city %>">
-
-      <% if @computer_time %>
-        <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
-          <% nb_hrs = (@computer_time.minutes / 60).floor %>
-          <% nb_min = @computer_time.minutes % 60 %>
-          <p>Computer time:
-            <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
-          </p>
+        <div class="custom-control custom-switch card-blink toggle-button-container text-center eye-break">
+          <p class="notification-title">EYE BREAK NOTIFICATION</p>
+          <div class="toggle-div">
+            <input type="checkbox" class="custom-control-input" id="switch-eye-break" <%= 'checked' if current_user.setting.eye_break_notification_active %>>
+            <label class="custom-control-label" for="switch-eye-break"></label>
+            <div hidden id='eye-break-notification-active'><%= current_user.setting.eye_break_notification_active %></div>
+          </div>
         </div>
-      <% end %>
-
-
-      <div id="weather-temperature"></div>
-      <img id="weather-icon">
-      <div id="weather-description"></div>
-      <div id="weather-humidity"></div>
-
 
     </div>
 
-  </div>
 
-  <div id="Blinking Exercises" class="tabcontent">
-    <h3>Blinking Exercises</h3>
-    <p></p>
-  </div>
 
-  <div id="Resources" class="tabcontent">
-    <h3>Resources</h3>
-    <p></p>
-  </div>
 
-  <div id="Settings" class="tabcontent">
-    <h3>Settings</h3>
-    <p></p>
+
+    <!-- Tab links -->
+    <div class="tabs-blink">
+      <div class="tab-blink active" onclick="window.openTabs(event, 'Journal')"><h3>JOURNAL</h3></div>
+      <div class="tab-blink" onclick="window.openTabs(event, 'Blinking Exercises')"><h3>BLINKING EXERCISES</h3></div>
+      <div class="tab-blink" onclick="window.openTabs(event, 'Resources')"><h3>RESSOURCES</h3></div>
+      <div class="tab-blink" onclick="window.openTabs(event, 'Settings')"><h3>SETTINGS</h3></div>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Journal" class="tabcontent tabcontent-blink" style="display: block">
+      <h3>Journal</h3>
+
+      <div id="board" data-city="<%= current_user.city %>">
+
+        <% if @computer_time %>
+          <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
+            <% nb_hrs = (@computer_time.minutes / 60).floor %>
+            <% nb_min = @computer_time.minutes % 60 %>
+            <p>Computer time:
+              <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
+            </p>
+          </div>
+        <% end %>
+
+
+        <div id="weather-temperature"></div>
+        <img id="weather-icon">
+        <div id="weather-description"></div>
+        <div id="weather-humidity"></div>
+
+
+      </div>
+
+    </div>
+
+    <div id="Blinking Exercises" class="tabcontent tabcontent-blink">
+      <h3>Blinking Exercises</h3>
+      <p></p>
+    </div>
+
+    <div id="Resources" class="tabcontent tabcontent-blink">
+      <h3>Resources</h3>
+      <p></p>
+    </div>
+
+    <div id="Settings" class="tabcontent tabcontent-blink">
+      <h3>Settings</h3>
+      <p></p>
+    </div>
+
   </div>
 
 </div>

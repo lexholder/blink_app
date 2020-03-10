@@ -23,26 +23,33 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs container">
+  <div class="form-inputs container" id="SignupFormDesktop">
     <%= f.input :first_name,
+            label: false,
             required: true,
-            autofocus: true %>
-    <%= f.input :city, input_html: { id:"city-input" },
-          required: true %>
+            placeholder: 'FIRST NAME' %>
+    <%= f.input :city,
+                input_html: { id:"city-input", placeholder: 'CITY' },
+                label: false,
+                required: true %>
     <%= f.input :email,
+                label: false,
                 required: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email", placeholder: 'EMAIL' } %>
     <%= f.input :password,
+                label: false,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", placeholder: 'PASSWORD' } %>
     <%= f.input :password_confirmation,
+                label: false,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", placeholder: "CONFIRM PASSWORD" } %>
   </div>
-<div class="text-center">
-  <div class="form-actions desk-button button btn btn-outline-success mb-3 text-center">
-    <%= f.button :submit, "Sign up" %>
+    <br><br>
+<div class="text-center" style="margin: -25% 0 25% 0">
+  <div class="form-actions desk-button button btn btn-outline-success mb-5 text-center">
+    <%= f.button :submit, "SIGN UP", class: "orange-text" %>
   </div>
 </div>
 <% end %>

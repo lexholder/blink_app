@@ -15,15 +15,21 @@
   </div>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs container">
+  <div class="form-inputs container" id="loginForm">
+
     <%= f.input :email,
+                label: false,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email", placeholder: 'EMAIL' } %>
     <%= f.input :password,
+                label: false,
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                input_html: { autocomplete: "current-password", placeholder: 'PASSWORD' } %>
+                <br><br>
+    <div style="margin: 0 29%">
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
   </div>
 <div class="text-center">
   <div class="form-actions desk-button button btn btn-outline-success mb-3 text-center">

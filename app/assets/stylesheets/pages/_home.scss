@@ -11,11 +11,11 @@
 }
 
 .landing_header_mobile_background {
-height: 350px;
-    position: absolute;
-    background-color: #F9F2E8;
-    width: 100%;
-    z-index: -1;
+  height: 350px;
+  // position: absolute;
+  background-color: #F9F2E8;
+  width: 100%;
+  z-index: -1;
 }
 
 .landing_header_mobile h1 {
@@ -40,7 +40,30 @@ height: 350px;
 }
 
 .desktop_landing_grid {
-  display: grid;
-  bottom: 25px;
-  top: 793px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  bottom: 0px;
+  width: 1100px;
+  margin: 20px 150px;
+
+}
+
+.desktop-card {
+  position: relative;
+  top: 140px;
+  bottom: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  height: 384px;
+  padding: 15px;
+}
+
+.desk-button {
+  position: absolute;
+  left: 534px;
+  top: 907px;
 }

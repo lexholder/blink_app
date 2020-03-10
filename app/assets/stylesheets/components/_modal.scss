@@ -1,0 +1,38 @@
+.modal-blink.resource {
+
+}
+
+.modal-blink.exercise {
+
+}
+
+.modal-blink {
+  .modal-content {
+    padding: 50px;
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p, ul {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+  }
+  .exercise {
+    display: flex;
+    align-items: center;
+    #title-in-modal {
+      padding-left: 40px;
+    }
+    i {
+      font-size: 40px;
+      color: $hard-orange;
+    }
+    .repetitions {
+      padding-left: 25px;
+    }
+  }
+}

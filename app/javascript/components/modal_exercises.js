@@ -1,4 +1,4 @@
-const playButtons = document.querySelectorAll(".play-btn");
+const playButtons = document.querySelectorAll(".page__play-btn");
 
 const setPlayButton = (button, audio) => {
   button.addEventListener('click', (event) => {
@@ -30,7 +30,7 @@ const setPlayButtonModal = (playButtonModal, audio) => {
   setPlayButton(playButtonModal, audio);
   playButtonModal.addEventListener('click', (event) => {
     const playButtonInPageDiv = document.getElementById(playButtonModal.dataset.playid);
-    const playButtonInPage = playButtonInPageDiv.querySelector('.button');
+    const playButtonInPage = playButtonInPageDiv.querySelector('.page__play-btn');
     playButtonInPage.classList = playButtonModal.classList;
     playButtonInPage.innerHTML = playButtonModal.innerHTML;
     audio.addEventListener('ended', (event) => {
@@ -84,9 +84,9 @@ const setModalExercises = () => {
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
           const playButtonInPageDiv = document.getElementById(event.currentTarget.dataset.playid);
-          const playButtonInPage = playButtonInPageDiv.querySelector('.button');
+          const playButtonInPage = playButtonInPageDiv.querySelector('.page__play-btn');
           playButtonModalDiv.innerHTML = playButtonInPage.outerHTML;
-          const playButtonModal = playButtonModalDiv.querySelector('.button');
+          const playButtonModal = playButtonModalDiv.querySelector('.page__play-btn');
           playButtonModal.dataset.playid = event.currentTarget.dataset.playid;
           let audio = new Audio(playButtonModal.dataset.sound);
           if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
@@ -101,7 +101,7 @@ const setModalExercises = () => {
 
 const updateHTMLForCompletedRoutine = (timeOfDay) => {
   const completedElement = document.getElementById(`completed-${timeOfDay}`);
-  completedElement.innerText = "Completed";
+  completedElement.innerHTML = `<img src="assets/vectors/completed.svg">`;
 }
 
 
@@ -116,7 +116,7 @@ const setModalRoutineExercises = () => {
         fillInModalContent(title, directions, repetition);
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
-          const playButtonModal = playButtonModalDiv.querySelector('.button');
+          const playButtonModal = playButtonModalDiv.querySelector('.play-btn');
           let audio = new Audio(openModalButton.dataset.sound);
           if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
             audio = window.audio;
@@ -153,4 +153,4 @@ const setModalRoutineExercises = () => {
 
 
 
-export { setplayButtons, setModalExercises, setModalRoutineExercises };
+export { setplayButtons, setModalExercises, setModalRoutineExercises, updateHTMLForCompletedRoutine };

@@ -1,0 +1,79 @@
+#board {
+  .board-bottom, .board-top {
+    display: flex;
+  }
+  .board-top {
+    margin-bottom: 8px;
+  }
+}
+
+
+.board-section {
+  background: rgba(255, 228, 228, 0.6);
+  height: 70px;
+  width: 76px;
+  position: relative;
+  .board-label {
+    font-weight: 500;
+    font-size: 6px;
+    line-height: 9px;
+  }
+}
+
+.board-section.top-left {
+  border-radius: 24px 0px 0px 24px;
+  margin-right: 8px;
+  .board-label {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+  }
+}
+.board-section.top-right {
+  border-radius: 0px 24px 24px 0px;
+  .board-label {
+    position: absolute;
+    bottom: 5px;
+    left: 8px;
+  }
+}
+.board-section.bottom-left {
+  border-radius: 24px 0px 0px 24px;
+  margin-right: 8px;
+  .board-label {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+  }
+}
+.board-section.bottom-right {
+  border-radius: 0px 24px 24px 0px;
+  .board-label {
+    position: absolute;
+    bottom: 5px;
+    left: 8px;
+  }
+}
+
+img#weather-icon {
+  filter: contrast(0) sepia(100%) hue-rotate(0deg) saturate(2000%) brightness(100%);
+  -webkit-filter: contrast(0) sepia(100%) hue-rotate(0deg) saturate(2000%) brightness(100%);
+  width: 60px;
+  display: block;
+  margin-top: 3px;
+  margin-left: 6px;
+  margin-right: auto;
+}
+
+img#computer-icon {
+  // position: absolute;
+  // margin: auto;
+  // top: 10;
+  // left: 0;
+  // right: 0;
+  display: block;
+  margin-top: 3px;
+  margin-left: auto;
+  margin-right: 6px;
+}
+

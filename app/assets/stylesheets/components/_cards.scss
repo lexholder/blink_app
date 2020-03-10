@@ -50,3 +50,24 @@
     color: $hard-orange;
   }
 }
+
+.card-blink.card-routine {
+  width: 70%;
+  padding: 4% 7%;
+  margin: 0;
+  h2 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  p {
+    margin: 0 0;
+    font-size: 12px;
+    line-height: 18px;
+    color: $gray;
+  }
+  .routine-infos {
+    display: flex;
+    justify-content: space-between;
+  }
+}

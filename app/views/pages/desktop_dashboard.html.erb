@@ -43,26 +43,127 @@
 
     <!-- Tab content -->
     <div id="Journal" class="tabcontent tabcontent-blink" style="display: block">
-      <h3>Journal</h3>
 
-      <div id="board" data-city="<%= current_user.city %>">
+      <div id="dashboard">
 
-        <% if @computer_time %>
-          <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
-            <% nb_hrs = (@computer_time.minutes / 60).floor %>
-            <% nb_min = @computer_time.minutes % 60 %>
-            <p>Computer time:
-              <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
-            </p>
+        <div class="board-part">
+
+          <div id="board" data-city="<%= current_user.city %>">
+
+            <div class="board-top">
+
+              <div class="board-section top-left">
+                <div class="board-content temperature">
+                  <div id="weather-temperature"></div>
+                  <div id="weather-degrees">°C</div>
+                </div>
+                <div class="board-label">
+                  TEMPERATURE
+                </div>
+              </div>
+
+              <div class="board-section top-right">
+                <div class="board-content">
+                  <img id="weather-icon">
+                </div>
+                <div class="board-label">
+                  <div id="weather-description"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="board-bottom">
+
+              <div class="board-section bottom-left">
+                <div class="board-content">
+                  <%= image_tag (asset_url('vectors/computer')), id:"computer-icon" %>
+                  <div class="computer-time">
+                    <% if @computer_time %>
+
+                      <% nb_hrs = (@computer_time.minutes / 60).floor %>
+                      <% nb_min = @computer_time.minutes % 60 %>
+                      <p>
+                        <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min unless (nb_hrs.zero? && nb_min.zero?)%><%= "min" if (nb_hrs.zero? && !nb_min.zero?) %></span>
+                      </p>
+
+                    <% else %>
+                      <p>Unavailable.</p>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="board-label">
+                  COMPUTER TIME
+                </div>
+              </div>
+
+              <div class="board-section humidity bottom-right">
+                <div class="board-content humidity">
+                  <div id="weather-humidity"></div>
+                  <%= image_tag (asset_url('vectors/humidity')) %>
+                </div>
+                <div class="board-label">
+                  HUMIDITY
+                </div>
+              </div>
+
+            </div>
+
           </div>
-        <% end %>
+
+        </div>
 
 
-        <div id="weather-temperature"></div>
-        <img id="weather-icon">
-        <div id="weather-description"></div>
-        <div id="weather-humidity"></div>
+        <div class="routines">
 
+          <% if @routine_morning %>
+
+            <div class="routine">
+                <div id="completed-morning">
+                  <%= image_tag (asset_url("vectors/completed#{"_not" unless @routine_morning.completed}")) %>
+                </div>
+
+                <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
+
+                <div type="button" class="card-blink card-routine open-btn-modal-routine morning" data-toggle="modal" data-target="#exampleModal"
+                        data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
+                        data-sound="<%= asset_url(exercise_asset_path) %>">
+                    <h2> MORNING </h2>
+                    <div class="routine-infos">
+                      <p><%= @routine_morning.exercise.title %></p>
+                      <p><%= @routine_morning.repetition %> rep</p>
+                    </div>
+                </div>
+
+
+            </div>
+          <% end %>
+
+
+          <% if @routine_night %>
+
+            <div class="routine">
+                <div id="completed-night">
+                  <%= image_tag (asset_url("vectors/completed#{"_not" unless @routine_night.completed}")) %>
+                </div>
+
+                <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
+
+                <div type="button" class="card-blink card-routine open-btn-modal-routine night" data-toggle="modal" data-target="#exampleModal"
+                        data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
+                        data-sound="<%= asset_url(exercise_asset_path) %>">
+                    <h2> NIGHT </h2>
+                    <div class="routine-infos">
+                      <p><%= @routine_night.exercise.title %></p>
+                      <p><%= @routine_night.repetition %> rep</p>
+                    </div>
+                </div>
+
+
+            </div>
+          <% end %>
+
+        </div>
 
       </div>
 

@@ -10,28 +10,39 @@
 
       <% @exercises.each do |exercise| %>
 
-        <div class="card-exercise">
+        <div class="card-blink">
 
-          <h2><%= exercise.title %></h2>
-          <div class="play-btn-page-div" id='<%= exercise.id %>'>
-            <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
-            <button class="btn btn-primary btn-lg play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
-              <i class='far fa-play-circle'></i>
-            </button>
+          <div class="card-blink-content exercise">
+
+
+            <div class="card-blink-play-part">
+              <div class="play-btn-page-div" id='<%= exercise.id %>'>
+                <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
+                <div class="page__play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
+                  <i class='fas fa-play-circle'></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-blink-infos exercise">
+              <h2><%= exercise.title %></h2>
+              <p><%= exercise.summary %></p>
+            </div>
+
           </div>
 
-          <p><%= exercise.summary %></p>
-          <button type="button" class="btn btn-primary open-btn-modal" data-toggle="modal" data-target="#exampleModal"
-                  data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>'
-                  data-playid = '<%= exercise.id %>' >
-            Read instructions
-          </button>
+
+          <div type="button" class="open-btn-modal card-blink-footer" data-toggle="modal" data-target="#exampleModal"
+                    data-title='<%= exercise.title %>' data-directions='<%= exercise.directions %>'
+                    data-playid = '<%= exercise.id %>' >
+              Read instructions
+          </div>
 
         </div>
 
       <% end %>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade modal-blink exercise" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -39,16 +50,20 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <h2 id="title-in-modal"></h2>
-          <div id="play-btn-modal-div"></div>
-          <ul id="directions-list-in-modal">
-          </ul>
+          <div class="exercise">
+            <div id="play-btn-modal-div"></div>
+            <div class="rigth-content">
+              <h2 id="title-in-modal"></h2>
+              <ul id="directions-list-in-modal">
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <%= render 'shared/navbar_footer' %>
+  <%= render 'shared/footer' %>
 
 </div>

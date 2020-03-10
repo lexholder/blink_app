@@ -3,31 +3,81 @@
   <div class="container">
 
     <%= render 'shared/banner_mobile' %>
-<br>
-<br>
-    <div class="mb-5" style="width: 168px; height: 147px; background-image: url(<%= asset_url 'vectors/journalstats.svg' %>)"></div>
 
-    <div id="board" data-city="<%= current_user.city %>">
+    <div class="title-underlined">
+      <h2 class="title"><%= Date.today.strftime("%a %B %e").upcase %></h2>
+    </div>
 
-      <div class="computer-time">
-        <% if @computer_time %>
+    <div class="d-flex justify-content-center">
 
-          <% nb_hrs = (@computer_time.minutes / 60).floor %>
-          <% nb_min = @computer_time.minutes % 60 %>
-          <p>Computer time:
-            <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min %><%= "min" if nb_hrs.zero? %></span>
-          </p>
+      <div id="board" data-city="<%= current_user.city %>">
 
-        <% else %>
-          <p>Computer time: unavailable.</p>
-        <% end %>
+        <div class="board-top">
+
+          <div class="board-section top-left">
+            <div class="board-content temperature">
+              <div id="weather-temperature"></div>
+              <div id="weather-degrees">°C</div>
+            </div>
+            <div class="board-label">
+              TEMPERATURE
+            </div>
+          </div>
+
+          <div class="board-section top-right">
+            <div class="board-content">
+              <img id="weather-icon">
+            </div>
+            <div class="board-label">
+              <div id="weather-description"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="board-bottom">
+
+          <div class="board-section bottom-left">
+            <div class="board-content">
+              <%= image_tag (asset_url('vectors/computer')), id:"computer-icon" %>
+              <div class="computer-time">
+                <% if @computer_time %>
+
+                  <% nb_hrs = (@computer_time.minutes / 60).floor %>
+                  <% nb_min = @computer_time.minutes % 60 %>
+                  <p>
+                    <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min unless (nb_hrs.zero? && nb_min.zero?)%><%= "min" if (nb_hrs.zero? && !nb_min.zero?) %></span>
+                  </p>
+
+                <% else %>
+                  <p>Unavailable.</p>
+                <% end %>
+              </div>
+            </div>
+            <div class="board-label">
+              COMPUTER TIME
+            </div>
+          </div>
+
+          <div class="board-section humidity bottom-right">
+            <div class="board-content humidity">
+              <div id="weather-humidity"></div>
+              <%= image_tag (asset_url('vectors/humidity')) %>
+            </div>
+            <div class="board-label">
+              HUMIDITY
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
-      <div id="weather-temperature"><%= @temperature %></div>
-      <img id="weather-icon">
-      <div id="weather-description"></div>
-      <div id="weather-humidity"></div>
+    </div>
 
+
+    <div class="title-underlined">
+      <h2 class="title">TODAY'S ROUTINE</h2>
     </div>
 
     <div class="routines">
@@ -78,7 +128,7 @@
       </div>
 
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade modal-blink exercise" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -86,15 +136,19 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <h2 id="title-in-modal"></h2>
-            <div id="play-btn-modal-div">
-              <button class="btn btn-primary btn-lg">
-                <i class='far fa-play-circle'></i>
-              </button>
+            <div class="exercise">
+              <div id="play-btn-modal-div">
+                <div class="play-btn">
+                  <i class='far fa-play-circle'></i>
+                </div>
+              </div>
+              <div class="right-content">
+                <h2 id="title-in-modal"></h2>
+                <ul id="directions-list-in-modal">
+                </ul>
+                <p>Nb of repetitions: <span id="repetition"></span> </p>
+              </div>
             </div>
-            <ul id="directions-list-in-modal">
-            </ul>
-            <p>Nb of repetitions: <span id="repetition"></span> </p>
           </div>
         </div>
       </div>
@@ -103,6 +157,6 @@
 
   </div>
 
-  <%= render 'shared/navbar_footer' %>
+  <%= render 'shared/footer' %>
 
 </div>

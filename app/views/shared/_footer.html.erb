@@ -1,0 +1,19 @@
+<div class="footer">
+  <div class="footer-links">
+    <a href="/dashboard" class="footer-link <%= 'active' if @tab == 'dashboard' %>">
+      <%= render 'shared/dashboard_icon' %>
+    </a>
+    <a href="/blinking-exercises" class="footer-link <%= 'active' if @tab == 'exercises' %>">
+      <%= render 'shared/exercise_icon' %>
+    </a>
+     <a href="/resources" class="footer-link <%= 'active' if @tab == 'resources' %>">
+      <%= render 'shared/resources_icon' %>
+    </a>
+     <a href="/settings/edit" class="footer-link <%= 'active' if @tab == 'settings' %>">
+      <%= render 'shared/settings_icon' %>
+    </a>
+  </div>
+</div>
+
+
+

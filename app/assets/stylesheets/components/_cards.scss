@@ -1,4 +1,52 @@
-.card-exercise {
+.card-blink {
   border-radius: 16px;
   background-color: $sepia;
+  margin-bottom: 22px;
+  padding: 0 8px;
+  .card-blink-content {
+    padding: 0 8px;
+  }
+  .card-blink-footer {
+    border-top: 0.5px solid $soft-orange;
+    text-align: center;
+    color: $hard-orange;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 16px 0;
+  }
+}
+
+
+.card-blink-content.exercise {
+  display: flex;
+}
+
+.card-blink-infos {
+  padding-top: 30px;
+  padding-bottom: 8px;
+  h2 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  p {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+  }
+}
+
+.card-blink-infos.exercise {
+  width: 70%;
+}
+
+.card-blink-play-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 30px;
+  i {
+    font-size: 40px;
+    color: $hard-orange;
+  }
 }

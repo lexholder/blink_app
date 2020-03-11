@@ -50,10 +50,11 @@
   flex-direction: column;
   justify-content: space-around;
   margin-right: 30px;
-  i {
-    font-size: 40px;
-    color: $hard-orange;
-  }
+}
+
+.card-blink i {
+  font-size: 40px;
+  color: $hard-orange;
 }
 
 .card-blink.card-routine {

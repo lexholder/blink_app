@@ -72,20 +72,5 @@ const eyeBreakNotifications = () => {
   });
 };
 
-const eyeBreakNotificationForDemo = () => {
-  const active = document.getElementById("eye-break-notification-active");
-  const triggerButton = document.getElementById("demo-trigger-button");
-  console.log('hey');
-  console.log(triggerButton);
-  if (triggerButton){
-    triggerButton.addEventListener("click", () => {
-      if (active.innerText === "true") {
-        const randomIndex = Math.floor(Math.random() * suggestions.length);
-        pushNotification(randomIndex);
-      }
-    });
-  }
-}
 
-
-export { eyeBreakNotifications, eyeBreakNotificationForDemo };
+export { eyeBreakNotifications };

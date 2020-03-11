@@ -1,5 +1,10 @@
 const playButtons = document.querySelectorAll(".page__play-btn");
 
+const updateHTMLForCompletedRoutine = (timeOfDay) => {
+  const completedElement = document.getElementById(`completed-${timeOfDay}`);
+  completedElement.innerHTML = `<img src="assets/vectors/completed.svg">`;
+}
+
 const setPlayButton = (button, audio) => {
   button.addEventListener('click', (event) => {
     if (event.currentTarget.classList.contains('playing')){
@@ -24,6 +29,29 @@ const setPlayButton = (button, audio) => {
       audio.play();
     }
   });
+  audio.addEventListener('ended', (event) => {
+    audio.pause();
+    audio.currentTime = 0;
+    button.classList.remove('playing');
+    button.innerHTML = "<i class='fas fa-play-circle'></i>";
+    if (button.classList.contains("play-btn-routine")) {
+      if (button.classList.contains('morning')){
+        fetch('routines/complete_morning_routine', {
+          method: "PATCH"
+        })
+        .then(() => {
+          updateHTMLForCompletedRoutine('morning');
+        })
+      } else if (button.classList.contains('night')){
+        fetch('routines/complete_night_routine', {
+          method: "PATCH"
+        })
+        .then(() => {
+          updateHTMLForCompletedRoutine('night');
+        })
+      }
+    }
+  })
 };
 
 const setPlayButtonModal = (playButtonModal, audio) => {
@@ -33,14 +61,14 @@ const setPlayButtonModal = (playButtonModal, audio) => {
     const playButtonInPage = playButtonInPageDiv.querySelector('.page__play-btn');
     playButtonInPage.classList = playButtonModal.classList;
     playButtonInPage.innerHTML = playButtonModal.innerHTML;
-    audio.addEventListener('ended', (event) => {
-      audio.pause();
-      audio.currentTime = 0;
-      playButtonModal.classList.remove('playing');
-      playButtonModal.innerHTML = "<i class='fas fa-play-circle'></i>";
-      playButtonInPage.classList.remove('playing');
-      playButtonInPage.innerHTML = "<i class='fas fa-play-circle'></i>";
-    })
+    // audio.addEventListener('ended', (event) => {
+    //   audio.pause();
+    //   audio.currentTime = 0;
+    //   playButtonModal.classList.remove('playing');
+    //   playButtonModal.innerHTML = "<i class='fas fa-play-circle'></i>";
+    //   playButtonInPage.classList.remove('playing');
+    //   playButtonInPage.innerHTML = "<i class='fas fa-play-circle'></i>";
+    // })
   })
 };
 
@@ -49,30 +77,30 @@ const setplayButtons = () => {
     playButtons.forEach((button) => {
       const audio = new Audio(button.dataset.sound);
       setPlayButton(button, audio);
-      audio.addEventListener('ended', (event) => {
-        audio.pause();
-        audio.currentTime = 0;
-        button.classList.remove('playing');
-        button.innerHTML = "<i class='fas fa-play-circle'></i>";
-        if (button.classList.contains("routine-btn")) {
-          let urlToUpdate = '';
-          if (button.classList.contains('morning')){
-            fetch('routines/complete_morning_routine', {
-              method: "PATCH"
-            })
-            .then(() => {
-              updateHTMLForCompletedRoutine('morning');
-            })
-          } else if (button.classList.contains('night')){
-            fetch('routines/complete_night_routine', {
-              method: "PATCH"
-            })
-            .then(() => {
-              updateHTMLForCompletedRoutine('night');
-            })
-          }
-        }
-      })
+      // audio.addEventListener('ended', (event) => {
+      //   audio.pause();
+      //   audio.currentTime = 0;
+      //   button.classList.remove('playing');
+      //   button.innerHTML = "<i class='fas fa-play-circle'></i>";
+      //   if (button.classList.contains("routine-btn")) {
+      //     let urlToUpdate = '';
+      //     if (button.classList.contains('morning')){
+      //       fetch('routines/complete_morning_routine', {
+      //         method: "PATCH"
+      //       })
+      //       .then(() => {
+      //         updateHTMLForCompletedRoutine('morning');
+      //       })
+      //     } else if (button.classList.contains('night')){
+      //       fetch('routines/complete_night_routine', {
+      //         method: "PATCH"
+      //       })
+      //       .then(() => {
+      //         updateHTMLForCompletedRoutine('night');
+      //       })
+      //     }
+      //   }
+      // })
     });
   }
 };
@@ -117,10 +145,6 @@ const setModalExercises = () => {
   }
 };
 
-const updateHTMLForCompletedRoutine = (timeOfDay) => {
-  const completedElement = document.getElementById(`completed-${timeOfDay}`);
-  completedElement.innerHTML = `<img src="assets/vectors/completed.svg">`;
-}
 
 
 const setModalRoutineExercises = () => {
@@ -171,4 +195,4 @@ const setModalRoutineExercises = () => {
 
 
 
-export { setplayButtons, setModalExercises, setModalRoutineExercises, updateHTMLForCompletedRoutine };
+export { setplayButtons, setModalExercises, updateHTMLForCompletedRoutine };

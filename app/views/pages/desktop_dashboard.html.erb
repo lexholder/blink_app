@@ -231,8 +231,39 @@
     </div>
 
     <div id="Settings" class="tabcontent tabcontent-blink">
-      <h3>Settings</h3>
-      <p></p>
+
+      <div class="desktop-settings">
+
+        <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+          <p class="notification-title">MORNING NOTIFICATION</p>
+          <div class="toggle-div">
+            <input type="checkbox" class="custom-control-input" id="switch-morning" <%= 'checked' if current_user.setting.morning_notification_active %>>
+            <label class="custom-control-label" for="switch-morning"></label>
+            <div hidden id='morning-notification-active'><%= current_user.setting.morning_notification_active %></div>
+          </div>
+        </div>
+
+
+        <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+          <p class="notification-title">NIGHT NOTIFICATION</p>
+          <div class="toggle-div">
+            <input type="checkbox" class="custom-control-input" id="switch-night" <%= 'checked' if current_user.setting.night_notification_active %>>
+            <label class="custom-control-label" for="switch-night"></label>
+            <div hidden id='night-notification-active'><%= current_user.setting.night_notification_active %></div>
+          </div>
+        </div>
+
+
+        <div class="custom-control custom-switch card-blink toggle-button-container text-center">
+          <p class="notification-title">CURRENT CITY</p>
+          <div class="text-center">
+            <input type="" id="city-input" class="update" value="<%= current_user.city %>"/>
+          </div>
+        </div>
+
+      </div>
+
+
     </div>
 
   </div>

@@ -1,3 +1,6 @@
+<% helpers = ActionController::Base.helpers %>
+const endAudio = new Audio("<%= helpers.image_url('sounds/end_dong.mp3') %>");
+
 const playButtons = document.querySelectorAll(".page__play-btn");
 
 const updateHTMLForCompletedRoutine = (timeOfDay) => {
@@ -32,6 +35,9 @@ const setPlayButton = (button, audio) => {
   audio.addEventListener('ended', (event) => {
     audio.pause();
     audio.currentTime = 0;
+    window.audio = endAudio;
+    endAudio.currentTime = 0;
+    endAudio.play();
     button.classList.remove('playing');
     button.innerHTML = "<i class='fas fa-play-circle'></i>";
     if (button.classList.contains("play-btn-routine")) {

@@ -1,10 +1,21 @@
-<h1>BLINK</h1>
-<h2>Sign up</h2>
-
+<div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/navbarpagesbacks.svg' %>)">
+  <div class="landing_header_mobile container">
+    <div class="header_links">
+      <div class="title-underlined">
+        <%= link_to "SIGN UP", new_user_registration_path, class: "title" %>
+      </div>
+      <div class="title-underlined">
+        <%= link_to "LOGIN", new_user_session_path, class: "title" %>
+      </div>
+    </div>
+    <div class="text-center">
+      <h1>BLINK <%= image_tag("logo-blink.svg", height:"63.6", width:"32", alt:"vector") %></h1>
+    </div>
+  </div>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs container", id="inputForm">
     <%= f.input :first_name,
             required: true,
             autofocus: true %>
@@ -16,15 +27,16 @@
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password"} %>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
-  <div class="form-actions">
+<div class="text-center">
+  <div class="form-actions desk-button button btn btn-outline-success mb-3">
     <%= f.button :submit, "Sign up" %>
   </div>
+</div>
 <% end %>
 
-<%= render "devise/shared/links" %>

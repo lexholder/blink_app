@@ -1,0 +1,89 @@
+#loginForm {
+  position: relative;
+  label {
+    position: absolute;
+  }
+  .form-control{
+    border: 0;
+
+  }
+  .form-group.user_email, .form-group.user_password {
+    input {
+      margin: 2%;
+      &:focus {
+        outline: none;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    margin: 0 5%;
+    border-bottom: .5px solid #818181;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}
+
+#loginFormDesktop {
+  position: relative;
+  top: -45%;
+  width: 150%;
+  margin: 0 -23%;
+  align-self: center;
+  label {
+    position: absolute;
+  }
+  .form-control{
+    border: 0;
+
+  }
+  .form-group.user_email, .form-group.user_password {
+    input {
+      margin: 2%;
+      &:focus {
+        outline: none;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    margin: 0 5%;
+    border-bottom: .5px solid #818181;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}
+
+#SignupFormDesktop {
+  position: relative;
+  top: -10%;
+  width: 150%;
+  margin: 0 -23%;
+  align-self: center;
+  label {
+    position: absolute;
+  }
+  .form-control{
+    border: 0;
+
+  }
+  .form-group.user_email, .form-group.user_password, .form-group.user_city,
+  .form-group.user_first_name, .form-group.user_password_confirmation {
+    input {
+      margin: 2%;
+      &:focus {
+        outline: none;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    margin: 0 5%;
+    border-bottom: .5px solid #818181;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}

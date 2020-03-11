@@ -101,7 +101,7 @@
                   </div>
                 </div>
 
-                <div type="button" class="card-routine-right-part open-btn-modal morning" data-toggle="modal" data-target="#exampleModal"
+                <div class="clickable card-routine-right-part open-btn-modal morning" data-toggle="modal" data-target="#exampleModal"
                         data-title='<%= @routine_morning.exercise.title %>' data-directions='<%= @routine_morning.exercise.directions %>' data-repetition='<%= @routine_morning.repetition %>'
                         data-playid="<%= @routine_morning.exercise.id %>" >
                   <h2> MORNING </h2>
@@ -135,7 +135,7 @@
                 </div>
               </div>
 
-              <div type="button" class="card-routine-right-part open-btn-modal night" data-toggle="modal" data-target="#exampleModal"
+              <div class="clickable card-routine-right-part open-btn-modal night" data-toggle="modal" data-target="#exampleModal"
                       data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
                       data-playid="<%= @routine_night.exercise.id %>" >
                 <h2> NIGHT </h2>
@@ -154,7 +154,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <button class="clickable close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

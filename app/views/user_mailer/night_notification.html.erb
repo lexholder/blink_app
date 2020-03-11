@@ -1,5 +1,17 @@
-<p>Good morning, <%= @user.email %>,</p>
+<div style="background-size: cover; background-position: center;background-image: url(<%= image_url 'deskphoto.jpg' %>")>
+  <br><br><br><br><br><br><br><br>
+  <div style="/*text-align: center;*/ display: flex; justify-content: center; /*align-items: center;*/ top: -20%">
+      <h1 style="color: #02196C; font-style: extralight; font-size: 36px;
+line-height: 100px; vertical-align: center; letter-spacing: 21%">BLINK <%= image_tag("logo-blink.svg", height:"63.6", width:"32", alt:"vector") %></h1>
+  </div>
+    </div>
+  </div>
+  <div style="margin-top: 1%; border: 1px solid #02196C"></div>
+  <div style="width: 100%; height: 100%; text-align: center;">
+    <h3>Good morning, <%= @user.first_name %>!</h3>
 
-<p>Here's a friendly reminder to complete your nightly blinking exercise! You can find it <a href="https://the-blink-app.herokuapp.com/dashboard">here</a>.</p>
+    <p>Here's a friendly reminder to complete your evening blinking exercise!<br><br> You can find it <a style="text-decoration: none" href="https://the-blink-app.herokuapp.com/dashboard">here</a>.</p>
 
-<p>Happy Blinking!</p>
+    <h4>Happy Blinking!</h4>
+</div>
+

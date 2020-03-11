@@ -1,4 +1,4 @@
-<div style="width: 100vw; height: 100vh; background-image: url(<%= image_url 'backgrounds/navbarpagesbacks.svg' %>)">
+<div style="width: 100vw; background-image: url(<%= image_url 'backgrounds/navbarpagesbacks.svg' %>)">
 
   <div class="container container-blink">
 
@@ -54,8 +54,10 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <h1 id="resource-title-in-modal"></h1>
-          <p id="resource-content-in-modal"></p>
+          <div class="modal-body">
+            <h1 id="resource-title-in-modal"></h1>
+            <p id="resource-content-in-modal"></p>
+          </div>
         </div>
       </div>
     </div>

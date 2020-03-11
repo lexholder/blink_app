@@ -8,6 +8,8 @@
 
 .modal-blink {
   .modal-dialog {
+    max-height: calc(100vh - 70px);
+    // overflow-y: auto;
 
   }
   .modal-header {

@@ -86,7 +86,7 @@
 
         <div class="routine">
             <div id="completed-morning">
-              <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_morning.completed}")) %>
+              <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_morning.completed}.svg")) %>
             </div>
 
             <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
@@ -110,7 +110,7 @@
 
         <div class="routine">
             <div id="completed-night">
-              <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_night.completed}")) %>
+              <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_night.completed}.svg")) %>
             </div>
 
             <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>

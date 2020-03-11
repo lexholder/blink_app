@@ -1,4 +1,5 @@
 #loginForm {
+  width: 90%;
   position: relative;
   label {
     position: absolute;
@@ -8,6 +9,38 @@
 
   }
   .form-group.user_email, .form-group.user_password {
+    input {
+      margin: 2%;
+      &:focus {
+        outline: none;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    margin: 0 5%;
+    border-bottom: .5px solid #818181;
+    display: flex;
+    justify-content: space-between;
+
+  }
+}
+
+#SignupFormMobile {
+  position: relative;
+  top: 30%;
+  width: 100%;
+  margin: 25% 0;
+  align-self: center;
+  label {
+    position: absolute;
+  }
+  .form-control{
+    border: 0;
+
+  }
+  .form-group.user_email, .form-group.user_password, .form-group.user_city,
+  .form-group.user_first_name, .form-group.user_password_confirmation {
     input {
       margin: 2%;
       &:focus {
@@ -87,3 +120,4 @@
 
   }
 }
+

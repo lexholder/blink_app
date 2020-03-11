@@ -72,5 +72,40 @@ const eyeBreakNotifications = () => {
   });
 };
 
+const pushNotificationDemo = () => {
+  const options = optionsForNotification(9);
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+  else if (Notification.permission === "granted") {
+    var notification = new Notification(title, options);
+    notification.addEventListener('click', (event) => {
+      pushNotification(0);
+    });
+  }
+  else if (Notification.permission !== "denied") {
+    Notification.requestPermission().then(function (permission) {
+      if (permission === "granted") {
+        var notification = new Notification(title, options);
+        notification.addEventListener('click', (event) => {
+          pushNotification(0);
+        });
+      }
+    });
+  }
+}
 
-export { eyeBreakNotifications };
+const eyeBreakNotificationsDemo = () => {
+  const switchButton = document.getElementById("switch-eye-break");
+  const active = document.getElementById("eye-break-notification-active");
+  switchButton.addEventListener("click", () => {
+    setTimeout(() => {
+      if (active.innerText === "true") {
+        pushNotificationDemo();
+      }
+    }, 10000);
+  });
+};
+
+
+export { eyeBreakNotifications, eyeBreakNotificationsDemo };

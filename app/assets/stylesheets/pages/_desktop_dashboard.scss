@@ -76,14 +76,37 @@
   }
 }
 
-.desktop-exercises-grid {
+.desktop-grid-1-1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 5%;
+  grid-auto-flow: row;
 }
 
 .desktop-settings {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   grid-column-gap: 5%;
+}
+
+.card-blink.desktop-resource {
+  padding: 3%;
+  h2 {
+    font-weight: 500;
+    font-size: 22px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  .summary {
+    color: $gray;
+    margin: 0;
+  }
+  .collapse {
+    text-align: justify;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 0.5px solid $soft-orange;
+  }
 }

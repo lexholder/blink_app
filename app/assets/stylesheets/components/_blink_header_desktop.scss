@@ -1,9 +1,6 @@
 .blink_header_desktop {
-  position: absolute;
-  width: 376px;
-  height: 111.07px;
-  top: 1%;
-  left: 1%;
+  padding-left: 234px;
+  padding-top: 50px;
   h1 {
     font-family: Poppins;
     font-weight: 200;
@@ -11,8 +8,6 @@
     line-height: 96px;
     display: flex;
     align-items: center;
-    text-align: center;
     letter-spacing: 0.21em;
-    margin-left: 125px;
   }
 }

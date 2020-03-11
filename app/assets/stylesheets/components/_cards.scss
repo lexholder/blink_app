@@ -16,7 +16,6 @@
   }
 }
 
-
 .card-blink-content.exercise {
   display: flex;
 }
@@ -40,13 +39,41 @@
   width: 70%;
 }
 
+.card-toggle-button {
+  border-radius: 16px;
+  background-color: $sepia;
+  margin-bottom: 22px;
+}
+
 .card-blink-play-part {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin-right: 30px;
-  i {
-    font-size: 40px;
-    color: $hard-orange;
+}
+
+.card-blink i {
+  font-size: 40px;
+  color: $hard-orange;
+}
+
+.card-blink.card-routine {
+  width: 70%;
+  padding: 4% 7%;
+  margin: 0;
+  h2 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  p {
+    margin: 0 0;
+    font-size: 12px;
+    line-height: 18px;
+    color: $gray;
+  }
+  .routine-infos {
+    display: flex;
+    justify-content: space-between;
   }
 }

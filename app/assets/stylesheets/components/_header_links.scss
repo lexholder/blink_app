@@ -5,15 +5,21 @@
   text-decoration: none;
 }
 
-
 .desktop_header_links {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 54px;
+  padding-top: 24px;
+  text-decoration: none;
+}
+
+.mobile-sign-out {
   display: flex;
   -webkit-box-pack: end;
   justify-content: flex-end;
-  padding-right: 54px;
+  padding-right: 28px;
   padding-top: 24px;
   position: absolute;
   top: 0;
   right: 0;
-  text-decoration: none;
 }

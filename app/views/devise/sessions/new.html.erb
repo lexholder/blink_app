@@ -1,4 +1,4 @@
-<% @user_on_desktop = request.headers["HTTP_USER_AGENT"].scan(/iPhone/).empty? %>
+<% @user_on_desktop = !request.user_agent.downcase.match(/mobile|android|iphone|blackberry|iemobile|kindle/) %>
 <% if @user_on_desktop %>
   <%= render "pages/desktop_login" %>
 <% else %>

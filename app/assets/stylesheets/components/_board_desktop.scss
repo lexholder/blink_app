@@ -1,0 +1,92 @@
+#board.desktop {
+  .board-top {
+    margin-bottom: 16px;
+  }
+  .board-section {
+    height: 112px;
+    width: 118px;
+    .board-label {
+      font-size: 12px;
+    }
+  }
+}
+
+#board.desktop {
+  .board-section.top-left {
+    border-radius: 24px 0px 0px 24px;
+    margin-right: 16px;
+    .board-label {
+      bottom: 10%;
+      right: 12%;
+    }
+  }
+  .board-section.top-right {
+    border-radius: 0px 24px 24px 0px;
+    .board-label {
+      bottom: 10%;
+      left: 12%;
+    }
+  }
+  .board-section.bottom-left {
+    border-radius: 24px 0px 0px 24px;
+    margin-right: 16px;
+    .board-label {
+      bottom: 10%;
+      right: 12%;
+    }
+  }
+  .board-section.bottom-right {
+    border-radius: 0px 24px 24px 0px;
+    .board-label {
+      bottom: 10%;
+      left: 12%;
+    }
+  }
+}
+
+#board.desktop {
+  img#weather-icon {
+    width: 80%;
+    margin-top: 3%;
+    margin-left: 10%;
+  }
+  img#computer-icon {
+    width: 68%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: 14%;
+  }
+  .computer-time {
+    left: 28%;
+    top: 23%;
+    width: 50%;
+    p {
+      font-size: 16px;
+    }
+  }
+  .board-content.temperature {
+    #weather-temperature {
+      right: 38%;
+      bottom: 27%;
+      font-size: 38px;
+    }
+    #weather-degrees {
+      right: 14%;
+      top: 12%;
+      font-size: 24px;
+    }
+  }
+  .board-section.humidity {
+    padding-bottom: 5%;
+  }
+  .board-content.humidity {
+    img {
+      width: 30px;
+      margin-left: 3px;
+    }
+    #weather-humidity {
+      font-size: 38px;
+    }
+  }
+}
+

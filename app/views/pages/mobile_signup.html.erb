@@ -1,5 +1,13 @@
-<div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/signup-form-mobile-back.svg' %>)">
-  <div class="login_header_mobile container">
+<div style="width: 100vw; height: 100vh; background-image: url(<%= image_url 'backgrounds/mobile-form-background.svg' %>)">
+  <div class="landing_header_mobile container">
+    <div class="header_links">
+      <div class="title-underlined">
+        <%= link_to "SIGN UP", new_user_registration_path, class: "title" %>
+      </div>
+      <div class="title-underlined">
+        <%= link_to "LOGIN", new_user_session_path, class: "title" %>
+      </div>
+    </div>
     <div class="text-center">
       <h1>BLINK <%= image_tag("logo-blink.svg", height:"63.6", width:"32", alt:"vector") %></h1>
     </div>

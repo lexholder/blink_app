@@ -5,7 +5,7 @@
 
 .tabs-blink {
   margin-top: 122px;
-  margin-bottom: 110px;
+  margin-bottom: 80px;
   display: flex;
   .tab-blink {
     margin-right: 10%;
@@ -33,5 +33,5 @@
 
 #dashboard {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

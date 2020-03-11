@@ -2,6 +2,18 @@ function openTabs(evt, tabName) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
+  // Stop and restart all audio
+  if (window.audio) {
+    const playButtons = document.querySelectorAll(".page__play-btn");
+    window.audio.pause();
+    window.audio.currentTime = 0;
+    playButtons.forEach((playButton) => {
+      playButton.classList.remove('paused');
+      playButton.classList.remove('playing');
+      playButton.innerHTML = "<i class='fas fa-play-circle'></i>";
+    })
+  }
+
   // Get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {

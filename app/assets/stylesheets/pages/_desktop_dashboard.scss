@@ -36,12 +36,30 @@
   justify-content: space-around;
   // align-items: center;
   .routines {
-    width: 50%;
+    width: 45%;
     .routine {
       width: 100%;
+      justify-content: space-between;
     }
   }
   .card-routine {
-    width: 80%;
+    width: 85%;
+  }
+}
+
+
+.card-routine.desktop {
+  .routine-header {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      font-size: 16px;
+    }
+  }
+  .routine-infos {
+    margin-top: 4%;
+    p {
+      font-size: 12px;
+    }
   }
 }

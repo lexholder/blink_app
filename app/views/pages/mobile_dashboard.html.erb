@@ -113,7 +113,7 @@
               <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_night.completed}.svg")) %>
             </div>
 
-            <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
+            <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_night.repetition}.wav" %>
 
             <div type="button" class="card-blink card-routine open-btn-modal-routine night" data-toggle="modal" data-target="#exampleModal"
                     data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'

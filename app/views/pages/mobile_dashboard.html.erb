@@ -5,7 +5,7 @@
     <%= render 'shared/banner_mobile' %>
 
     <div class="title-underlined">
-      <h2 class="title"><%= Date.today.strftime("%a %B %e").upcase %></h2>
+      <h2 class="title"><%= Date.today.strftime("%a, %B %e").upcase %></h2>
     </div>
 
     <div class="board-part">
@@ -107,7 +107,7 @@
                   <h2> MORNING </h2>
                   <div class="routine-infos">
                     <p><%= @routine_morning.exercise.title %></p>
-                    <p><%= @routine_morning.repetition %> rep</p>
+                    <p><%= @routine_morning.repetition %> reps</p>
                   </div>
                 </div>
 
@@ -141,7 +141,7 @@
                 <h2> NIGHT </h2>
                 <div class="routine-infos">
                   <p><%= @routine_night.exercise.title %></p>
-                  <p><%= @routine_night.repetition %> rep</p>
+                  <p><%= @routine_night.repetition %> reps</p>
                 </div>
               </div>
 

@@ -26,10 +26,8 @@
 }
 
 #loginFormDesktop {
-  position: relative;
-  top: -45%;
-  width: 150%;
-  margin: 0 -23%;
+  margin-top: 155px;
+  width: 500px;
   align-self: center;
   label {
     position: absolute;
@@ -48,20 +46,23 @@
         box-shadow: none;
       }
     }
-    margin: 0 5%;
     border-bottom: .5px solid #818181;
     display: flex;
     justify-content: space-between;
 
   }
+  #remember-me {
+    padding-left: 15px;
+  }
 }
 
 #SignupFormDesktop {
-  position: relative;
-  top: -10%;
-  width: 150%;
-  margin: 0 -23%;
+  margin-top: 155px;
+  width: 500px;
   align-self: center;
+  #city-input {
+    padding-left: 12px;
+  }
   label {
     position: absolute;
   }
@@ -80,7 +81,6 @@
         box-shadow: none;
       }
     }
-    margin: 0 5%;
     border-bottom: .5px solid #818181;
     display: flex;
     justify-content: space-between;

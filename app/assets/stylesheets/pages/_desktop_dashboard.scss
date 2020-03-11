@@ -64,6 +64,18 @@
   }
 }
 
+
+.routines.desktop {
+  #completed-night {
+    &:before {
+      width: 1px;
+      height: 80px;
+      top: calc(12px - (136px/2) - 40px);
+      left: calc(50% - 0.5px );
+    }
+  }
+}
+
 .desktop-exercises-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

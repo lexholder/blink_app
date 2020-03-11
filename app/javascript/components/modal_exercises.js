@@ -54,6 +54,24 @@ const setplayButtons = () => {
         audio.currentTime = 0;
         button.classList.remove('playing');
         button.innerHTML = "<i class='fas fa-play-circle'></i>";
+        if (button.classList.contains("routine-btn")) {
+          let urlToUpdate = '';
+          if (button.classList.contains('morning')){
+            fetch('routines/complete_morning_routine', {
+              method: "PATCH"
+            })
+            .then(() => {
+              updateHTMLForCompletedRoutine('morning');
+            })
+          } else if (button.classList.contains('night')){
+            fetch('routines/complete_night_routine', {
+              method: "PATCH"
+            })
+            .then(() => {
+              updateHTMLForCompletedRoutine('night');
+            })
+          }
+        }
       })
     });
   }

@@ -73,6 +73,7 @@
 
             </div>
 
+
             <div class="board-bottom">
 
               <div class="board-section bottom-left">
@@ -80,16 +81,24 @@
                   <%= image_tag (image_url('vectors/computer.svg')), id:"computer-icon" %>
                   <div class="computer-time">
                     <% if @computer_time %>
+                      <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
 
-                      <% nb_hrs = (@computer_time.minutes / 60).floor %>
-                      <% nb_min = @computer_time.minutes % 60 %>
-                      <p>
-                        <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min unless (nb_hrs.zero? && nb_min.zero?)%><%= "min" if (nb_hrs.zero? && !nb_min.zero?) %></span>
-                      </p>
+                        <% nb_hrs = (@computer_time.minutes / 60).floor %>
+                        <% nb_min = @computer_time.minutes % 60 %>
+                        <p>
+                          <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min unless (nb_hrs.zero? && nb_min.zero?)%><%= "min" if (nb_hrs.zero? && !nb_min.zero?) %></span>
+                        </p>
+
+                      </div>
 
                     <% else %>
-                      <p>0h</p>
+                      <div id="computer-time" data-computer-time-minutes="<%= 0 %>">
+                        <p>
+                          <span id="computer-time-hrs">0h</span><span id="computer-time-min"></span>
+                        </p>
+                      </div>
                     <% end %>
+
                   </div>
                 </div>
                 <div class="board-label">
@@ -114,7 +123,7 @@
         </div>
 
 
-        <div class="routines">
+        <div class="routines desktop">
 
           <% if @routine_morning %>
 
@@ -123,14 +132,12 @@
                   <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_morning.completed}.svg")) %>
                 </div>
 
-                <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-
                 <div class="card-blink desktop card-routine desktop morning">
                   <div class="routine-header">
-                    <h2> MORNING </h2>
+                    <h2> MORNING ROUTINE</h2>
                     <div class="play-btn-page-div">
                       <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-                      <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
+                      <div class="page__play-btn routine-btn night" data-sound="<%= image_url(exercise_asset_path) %>">
                         <i class='fas fa-play-circle'></i>
                       </div>
                     </div>
@@ -153,16 +160,15 @@
                   <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_night.completed}.svg")) %>
                 </div>
 
-                <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
 
                 <div class="card-blink desktop card-routine night"
                         data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
                         data-sound="<%= image_url(exercise_asset_path) %>">
                     <div class="routine-header">
-                      <h2> NIGHT </h2>
+                      <h2> NIGHT ROUTINE </h2>
                       <div class="play-btn-page-div">
-                        <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-                        <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
+                        <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
+                        <div class="page__play-btn routine-btn night" data-sound="<%= image_url(exercise_asset_path) %>">
                           <i class='fas fa-play-circle'></i>
                         </div>
                       </div>

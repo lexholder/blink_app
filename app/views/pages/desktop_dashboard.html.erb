@@ -123,14 +123,12 @@
                   <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_morning.completed}")) %>
                 </div>
 
-                <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-
                 <div class="card-blink desktop card-routine desktop morning">
                   <div class="routine-header">
                     <h2> MORNING ROUTINE</h2>
                     <div class="play-btn-page-div">
                       <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-                      <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
+                      <div class="page__play-btn routine-btn night" data-sound="<%= image_url(exercise_asset_path) %>">
                         <i class='fas fa-play-circle'></i>
                       </div>
                     </div>
@@ -153,7 +151,6 @@
                   <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_night.completed}")) %>
                 </div>
 
-                <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
 
                 <div class="card-blink desktop card-routine night"
                         data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
@@ -161,8 +158,8 @@
                     <div class="routine-header">
                       <h2> NIGHT ROUTINE </h2>
                       <div class="play-btn-page-div">
-                        <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-                        <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
+                        <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
+                        <div class="page__play-btn routine-btn night" data-sound="<%= image_url(exercise_asset_path) %>">
                           <i class='fas fa-play-circle'></i>
                         </div>
                       </div>

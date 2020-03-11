@@ -185,7 +185,36 @@
 
     <div id="Blinking Exercises" class="tabcontent tabcontent-blink">
 
+      <div class="desktop-exercises-grid">
 
+        <% @exercises.each do |exercise| %>
+
+          <div class="card-blink">
+
+            <div class="card-blink-content exercise">
+
+
+              <div class="card-blink-play-part">
+                <div class="play-btn-page-div" id='<%= exercise.id %>'>
+                  <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
+                  <div class="page__play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
+                    <i class='fas fa-play-circle'></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-blink-infos exercise">
+                <h2><%= exercise.title %></h2>
+                <p><%= exercise.summary %></p>
+              </div>
+
+            </div>
+
+          </div>
+
+        <% end %>
+
+      </div>
 
 
     </div>

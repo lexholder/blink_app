@@ -34,4 +34,14 @@
 #dashboard {
   display: flex;
   justify-content: space-around;
+  // align-items: center;
+  .routines {
+    width: 50%;
+    .routine {
+      width: 100%;
+    }
+  }
+  .card-routine {
+    width: 80%;
+  }
 }

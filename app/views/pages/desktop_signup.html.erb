@@ -9,16 +9,23 @@
 
   <div class="desktop_header_links">
 
-      <div class="title-underlined mr-4">
-        <%= link_to "SIGN UP", new_user_registration_path, class: "title" %>
-      </div>
+    <div class="title-underlined mr-4">
+      <%= link_to "SIGN UP", new_user_registration_path, class: "title" %>
+    </div>
 
-      <div class="title-underlined">
-        <%= link_to "LOGIN", new_user_session_path, class: "title" %>
-      </div>
+    <div class="title-underlined">
+      <%= link_to "LOGIN", new_user_session_path, class: "title" %>
+    </div>
 
   </div>
 
+  <div class="blink_header_desktop">
+    <h1>BLINK <%= image_tag("logo-blink.svg", height:"33.6", width:"102.19", alt:"vector") %></h1>
+  </div>
+
+  <div class="motto_desktop">
+    <h2>Show your eyes <br> some love</h2>
+  </div>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -47,7 +54,7 @@
                 input_html: { autocomplete: "new-password", placeholder: "CONFIRM PASSWORD" } %>
   </div>
     <br><br>
-<div class="text-center" style="margin: -25% 0 25% 0">
+<div class="text-center">
   <div class="form-actions desk-button button btn btn-outline-success mb-5 text-center">
     <%= f.button :submit, "SIGN UP", class: "orange-text" %>
   </div>

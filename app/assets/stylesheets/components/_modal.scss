@@ -7,8 +7,24 @@
 }
 
 .modal-blink {
+  .modal-dialog {
+
+  }
+  .modal-header {
+    border-bottom: 0 none;
+}
   .modal-content {
-    padding: 50px;
+    padding: 8%;
+    margin-top: 45%;
+    background: linear-gradient(180deg, #F9F2E8 0%, #FFFFFF 14.97%);
+    box-shadow: 4px 6px 22px rgba(153, 153, 153, 0.21);
+    border-radius: 5px 50px 5px 5px;
+
+  }
+  h1 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
   }
   h2 {
     font-weight: 500;
@@ -18,8 +34,9 @@
   p, ul {
     font-style: normal;
     font-weight: 300;
-    font-size: 12px;
-    line-height: 12px;
+    font-size: 16px;
+    line-height: 19px;
+    font-style: light;
   }
   .exercise {
     display: flex;

@@ -61,14 +61,6 @@ const setPlayButtonModal = (playButtonModal, audio) => {
     const playButtonInPage = playButtonInPageDiv.querySelector('.page__play-btn');
     playButtonInPage.classList = playButtonModal.classList;
     playButtonInPage.innerHTML = playButtonModal.innerHTML;
-    // audio.addEventListener('ended', (event) => {
-    //   audio.pause();
-    //   audio.currentTime = 0;
-    //   playButtonModal.classList.remove('playing');
-    //   playButtonModal.innerHTML = "<i class='fas fa-play-circle'></i>";
-    //   playButtonInPage.classList.remove('playing');
-    //   playButtonInPage.innerHTML = "<i class='fas fa-play-circle'></i>";
-    // })
   })
 };
 
@@ -77,30 +69,6 @@ const setplayButtons = () => {
     playButtons.forEach((button) => {
       const audio = new Audio(button.dataset.sound);
       setPlayButton(button, audio);
-      // audio.addEventListener('ended', (event) => {
-      //   audio.pause();
-      //   audio.currentTime = 0;
-      //   button.classList.remove('playing');
-      //   button.innerHTML = "<i class='fas fa-play-circle'></i>";
-      //   if (button.classList.contains("routine-btn")) {
-      //     let urlToUpdate = '';
-      //     if (button.classList.contains('morning')){
-      //       fetch('routines/complete_morning_routine', {
-      //         method: "PATCH"
-      //       })
-      //       .then(() => {
-      //         updateHTMLForCompletedRoutine('morning');
-      //       })
-      //     } else if (button.classList.contains('night')){
-      //       fetch('routines/complete_night_routine', {
-      //         method: "PATCH"
-      //       })
-      //       .then(() => {
-      //         updateHTMLForCompletedRoutine('night');
-      //       })
-      //     }
-      //   }
-      // })
     });
   }
 };
@@ -144,55 +112,6 @@ const setModalExercises = () => {
     })
   }
 };
-
-
-
-const setModalRoutineExercises = () => {
-  const openModalButtons = document.querySelectorAll('.open-btn-modal-routine');
-  if (openModalButtons){
-    openModalButtons.forEach((openModalButton) => {
-      openModalButton.addEventListener('click', (event) => {
-        const title = event.currentTarget.dataset.title;
-        const directions = event.currentTarget.dataset.directions;
-        const repetition = event.currentTarget.dataset.repetition;
-        fillInModalContent(title, directions, repetition);
-        const playButtonModalDiv = document.getElementById('play-btn-modal-div');
-        if (playButtonModalDiv) {
-          const playButtonModal = playButtonModalDiv.querySelector('.play-btn');
-          let audio = new Audio(openModalButton.dataset.sound);
-          if (playButtonModal.classList.contains('playing') || playButtonModal.classList.contains('paused')){
-            audio = window.audio;
-          } else {
-            setPlayButton(playButtonModal, audio);
-            audio.addEventListener('ended', (event) => {
-              audio.pause();
-              audio.currentTime = 0;
-              playButtonModal.classList.remove('playing');
-              playButtonModal.innerHTML = "<i class='fas fa-play-circle'></i>";
-              let urlToUpdate = '';
-              if (openModalButton.classList.contains('morning')){
-                fetch('routines/complete_morning_routine', {
-                  method: "PATCH"
-                })
-                .then(() => {
-                  updateHTMLForCompletedRoutine('morning');
-                })
-              } else if (openModalButton.classList.contains('night')){
-                fetch('routines/complete_night_routine', {
-                  method: "PATCH"
-                })
-                .then(() => {
-                  updateHTMLForCompletedRoutine('night');
-                })
-              }
-            })
-          }
-        }
-      })
-    })
-  }
-};
-
 
 
 export { setplayButtons, setModalExercises, updateHTMLForCompletedRoutine };

@@ -137,7 +137,7 @@
                     <h2> MORNING ROUTINE</h2>
                     <div class="play-btn-page-div">
                       <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-                      <div class="page__play-btn routine-btn night" data-sound="<%= image_url(exercise_asset_path) %>">
+                      <div class="page__play-btn play-btn-routine morning" data-sound="<%= image_url(exercise_asset_path) %>">
                         <i class='fas fa-play-circle'></i>
                       </div>
                     </div>
@@ -168,7 +168,7 @@
                       <h2> NIGHT ROUTINE </h2>
                       <div class="play-btn-page-div">
                         <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_night.repetition}.wav" %>
-                        <div class="page__play-btn routine-btn night" data-sound="<%= image_url(exercise_asset_path) %>">
+                        <div class="page__play-btn play-btn-routine night" data-sound="<%= image_url(exercise_asset_path) %>">
                           <i class='fas fa-play-circle'></i>
                         </div>
                       </div>

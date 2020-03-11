@@ -52,14 +52,18 @@
   margin-right: 30px;
 }
 
+.card-blink-play-part-routine {
+  margin-right: 7%;
+}
+
 .card-blink i {
   font-size: 40px;
   color: $hard-orange;
 }
 
 .card-blink.card-routine {
-  width: 70%;
-  padding: 4% 7%;
+  width: 78%;
+  padding: 4% 6% 4% 4%;
   margin: 0;
   h2 {
     font-weight: 500;
@@ -71,6 +75,9 @@
     font-size: 12px;
     line-height: 18px;
     color: $gray;
+  }
+  .card-routine-right-part {
+    flex-grow: 1;
   }
   .routine-infos {
     display: flex;

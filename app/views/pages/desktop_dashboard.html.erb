@@ -127,7 +127,7 @@
 
                 <div class="card-blink desktop card-routine desktop morning">
                   <div class="routine-header">
-                    <h2> MORNING </h2>
+                    <h2> MORNING ROUTINE</h2>
                     <div class="play-btn-page-div">
                       <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
                       <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
@@ -159,7 +159,7 @@
                         data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
                         data-sound="<%= image_url(exercise_asset_path) %>">
                     <div class="routine-header">
-                      <h2> NIGHT </h2>
+                      <h2> NIGHT ROUTINE </h2>
                       <div class="play-btn-page-div">
                         <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
                         <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">

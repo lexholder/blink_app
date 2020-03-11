@@ -9,7 +9,7 @@ const updateOnHTML = () => {
     hrsText = `${nbHrs}h`;
   }
   let minText = "";
-  if (nbMin < 10 && nbMin != 0){
+  if (nbMin < 10 && nbMin != 0 && nbHrs > 0){
     minText = "0";
   }
   minText = minText + `${nbMin}`;

@@ -73,6 +73,7 @@
 
             </div>
 
+
             <div class="board-bottom">
 
               <div class="board-section bottom-left">
@@ -80,16 +81,24 @@
                   <%= image_tag (image_url('vectors/computer')), id:"computer-icon" %>
                   <div class="computer-time">
                     <% if @computer_time %>
+                      <div id="computer-time" data-computer-time-minutes="<%= @computer_time.minutes %>">
 
-                      <% nb_hrs = (@computer_time.minutes / 60).floor %>
-                      <% nb_min = @computer_time.minutes % 60 %>
-                      <p>
-                        <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min unless (nb_hrs.zero? && nb_min.zero?)%><%= "min" if (nb_hrs.zero? && !nb_min.zero?) %></span>
-                      </p>
+                        <% nb_hrs = (@computer_time.minutes / 60).floor %>
+                        <% nb_min = @computer_time.minutes % 60 %>
+                        <p>
+                          <span id="computer-time-hrs"><%= "#{nb_hrs}h" unless (nb_hrs.zero? && !nb_min.zero?) %></span><span id="computer-time-min"><%= "0" if (nb_min<10 && !nb_hrs.zero?) %><%= nb_min unless (nb_hrs.zero? && nb_min.zero?)%><%= "min" if (nb_hrs.zero? && !nb_min.zero?) %></span>
+                        </p>
+
+                      </div>
 
                     <% else %>
-                      <p>0h</p>
+                      <div id="computer-time" data-computer-time-minutes="<%= 0 %>">
+                        <p>
+                          <span id="computer-time-hrs">0h</span><span id="computer-time-min"></span>
+                        </p>
+                      </div>
                     <% end %>
+
                   </div>
                 </div>
                 <div class="board-label">

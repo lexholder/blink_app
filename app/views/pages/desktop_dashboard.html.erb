@@ -37,7 +37,7 @@
     <div class="tabs-blink">
       <div class="tab-blink active clickable" onclick="window.openTabs(event, 'Journal')"><h3>JOURNAL</h3></div>
       <div class="tab-blink clickable" onclick="window.openTabs(event, 'Blinking Exercises')"><h3>BLINKING EXERCISES</h3></div>
-      <div class="tab-blink clickable" onclick="window.openTabs(event, 'Resources')"><h3>RESSOURCES</h3></div>
+      <div class="tab-blink clickable" onclick="window.openTabs(event, 'Resources')"><h3>RESOURCES</h3></div>
       <div class="tab-blink clickable" onclick="window.openTabs(event, 'Settings')"><h3>SETTINGS</h3></div>
     </div>
 
@@ -88,7 +88,7 @@
                       </p>
 
                     <% else %>
-                      <p>Unavailable.</p>
+                      <p>0h</p>
                     <% end %>
                   </div>
                 </div>
@@ -185,7 +185,36 @@
 
     <div id="Blinking Exercises" class="tabcontent tabcontent-blink">
 
+      <div class="desktop-exercises-grid">
 
+        <% @exercises.each do |exercise| %>
+
+          <div class="card-blink">
+
+            <div class="card-blink-content exercise">
+
+
+              <div class="card-blink-play-part">
+                <div class="play-btn-page-div" id='<%= exercise.id %>'>
+                  <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
+                  <div class="page__play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
+                    <i class='fas fa-play-circle'></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-blink-infos exercise">
+                <h2><%= exercise.title %></h2>
+                <p><%= exercise.summary %></p>
+              </div>
+
+            </div>
+
+          </div>
+
+        <% end %>
+
+      </div>
 
 
     </div>

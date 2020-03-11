@@ -9,6 +9,7 @@ class PagesController < ApplicationController
       @tab = 'dashboard'
       render :mobile_dashboard
     else
+      @exercises = Exercise.all
       render :desktop_dashboard
     end
   end

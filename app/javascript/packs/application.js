@@ -13,7 +13,7 @@ window.fillInModalResource = fillInModalResource;
 
 
 window.setModalExercises();
-window.setModalRoutineExercises();
+// window.setModalRoutineExercises();
 
 
 switchingRoutine();

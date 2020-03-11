@@ -1,4 +1,4 @@
-<div style="width: 100vw; height: 100vh; background-image: url(<%= asset_url 'backgrounds/navbarpagesbacks.svg' %>)">
+<div style="width: 100vw; height: 100vh; background-image: url(<%= image_url 'backgrounds/navbarpagesbacks.svg' %>)">
 
   <div class="container container-blink">
 
@@ -18,7 +18,7 @@
             <div class="card-blink-play-part">
               <div class="play-btn-page-div" id='<%= exercise.id %>'>
                 <% exercise_asset_path = "sounds/#{exercise.title.downcase.split().join('-')}-1.wav" %>
-                <div class="page__play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
+                <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
                   <i class='fas fa-play-circle'></i>
                 </div>
               </div>

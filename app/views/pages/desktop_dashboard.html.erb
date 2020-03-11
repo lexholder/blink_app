@@ -1,4 +1,4 @@
-<div class="background_desktop">
+<div class="background_desktop" style="background-image: url(<%= image_url 'backgrounds/desktopback.svg' %>)">
 
   <div class="desktop_header_links">
 
@@ -77,7 +77,7 @@
 
               <div class="board-section bottom-left">
                 <div class="board-content">
-                  <%= image_tag (asset_url('vectors/computer')), id:"computer-icon" %>
+                  <%= image_tag (image_url('vectors/computer')), id:"computer-icon" %>
                   <div class="computer-time">
                     <% if @computer_time %>
 
@@ -100,7 +100,7 @@
               <div class="board-section humidity bottom-right">
                 <div class="board-content humidity">
                   <div id="weather-humidity"></div>
-                  <%= image_tag (asset_url('vectors/humidity')) %>
+                  <%= image_tag (image_url('vectors/humidity')) %>
                 </div>
                 <div class="board-label">
                   HUMIDITY
@@ -120,7 +120,7 @@
 
             <div class="routine">
                 <div id="completed-morning">
-                  <%= image_tag (asset_url("vectors/completed#{"_not" unless @routine_morning.completed}")) %>
+                  <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_morning.completed}")) %>
                 </div>
 
                 <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
@@ -130,7 +130,7 @@
                     <h2> MORNING </h2>
                     <div class="play-btn-page-div">
                       <% exercise_asset_path = "sounds/#{@routine_morning.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-                      <div class="page__play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
+                      <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
                         <i class='fas fa-play-circle'></i>
                       </div>
                     </div>
@@ -150,19 +150,19 @@
 
             <div class="routine">
                 <div id="completed-night">
-                  <%= image_tag (asset_url("vectors/completed#{"_not" unless @routine_night.completed}")) %>
+                  <%= image_tag (image_url("vectors/completed#{"_not" unless @routine_night.completed}")) %>
                 </div>
 
                 <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-1.wav" %>
 
                 <div class="card-blink desktop card-routine night"
                         data-title='<%= @routine_night.exercise.title %>' data-directions='<%= @routine_night.exercise.directions %>' data-repetition='<%= @routine_night.repetition %>'
-                        data-sound="<%= asset_url(exercise_asset_path) %>">
+                        data-sound="<%= image_url(exercise_asset_path) %>">
                     <div class="routine-header">
                       <h2> NIGHT </h2>
                       <div class="play-btn-page-div">
                         <% exercise_asset_path = "sounds/#{@routine_night.exercise.title.downcase.split().join('-')}-#{@routine_morning.repetition}.wav" %>
-                        <div class="page__play-btn" data-sound="<%= asset_url(exercise_asset_path) %>">
+                        <div class="page__play-btn" data-sound="<%= image_url(exercise_asset_path) %>">
                           <i class='fas fa-play-circle'></i>
                         </div>
                       </div>

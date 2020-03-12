@@ -5,7 +5,8 @@ const playButtons = document.querySelectorAll(".page__play-btn");
 
 const updateHTMLForCompletedRoutine = (timeOfDay) => {
   const completedElement = document.getElementById(`completed-${timeOfDay}`);
-  completedElement.innerHTML = `<img src="assets/vectors/completed.svg">`;
+  const img_path = "<%= helpers.image_url('vectors/completed.svg') %>";
+  completedElement.innerHTML = `<img src='${img_path}' >`;
 }
 
 const setPlayButton = (button, audio) => {

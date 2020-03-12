@@ -1,5 +1,5 @@
-meta_product_name: "Product Name"
-meta_title: "Product name - Product tagline"
-meta_description: "Relevant description"
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_product_name: "Blink"
+meta_title: "Blink - Show your eyes some love"
+meta_description: "Are your eyes sore from working on your computer? Use Blink to give your eyes some love. A lean app that trains your brain to blink more and lets you know when it's time to give your eyes a rest."
+meta_image: "og-image.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards

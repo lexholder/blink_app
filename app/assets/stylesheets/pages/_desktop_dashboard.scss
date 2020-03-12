@@ -1,10 +1,15 @@
 .eye-break {
   width: 228px;
-  margin-top: 120px;
+  @media (min-width: 1220px) {
+    margin-top: 74px;
+
+  }
+  @media (min-width: 1440px) {
+    margin-top: 140px;
+  }
 }
 
 .tabs-blink {
-  margin-top: 122px;
   margin-bottom: 65px;
   display: flex;
   .tab-blink {
@@ -23,6 +28,13 @@
     h3 {
       color: $blue;
     }
+  }
+  @media (min-width: 1220px) {
+    margin-top: 74px;
+
+  }
+  @media (min-width: 1440px) {
+    margin-top: 180px;
   }
 }
 

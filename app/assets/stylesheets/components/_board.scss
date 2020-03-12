@@ -11,12 +11,12 @@
 
 .board-section {
   background: rgba(255, 228, 228, 0.6);
-  height: 70px;
-  width: 76px;
+  height: 80px;
+  width: 100px;
   position: relative;
   .board-label {
     font-weight: 500;
-    font-size: 7px;
+    font-size: 10px;
     line-height: 9px;
   }
 }
@@ -57,7 +57,7 @@
 }
 
 #weather-description {
-  width: 86%;
+  // width: 86%;
 }
 
 img#weather-icon {
@@ -66,7 +66,7 @@ img#weather-icon {
   width: 60px;
   display: block;
   margin-top: 3%;
-  margin-left: 10%;
+  margin-left: 15%;
 }
 
 img#computer-icon {

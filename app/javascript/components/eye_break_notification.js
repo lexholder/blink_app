@@ -147,12 +147,14 @@ const eyeBreakNotificationsDemo = () => {
   const switchButton = document.getElementById("switch-eye-break");
   const active = document.getElementById("eye-break-notification-active");
   switchButton.addEventListener("click", () => {
-    setTimeout(() => {
-      if (active.innerText === "true") {
-        twentyMinutesPassesOnHTMLForDemo();
-        pushNotificationDemo();
-      }
-    }, 10000);
+    if (switchButton.checked) {
+      setTimeout(() => {
+        if (active.innerText === "true") {
+          twentyMinutesPassesOnHTMLForDemo();
+          pushNotificationDemo();
+        }
+      }, 10000);
+    }
   });
 };
 

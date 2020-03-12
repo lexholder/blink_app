@@ -72,6 +72,30 @@ const eyeBreakNotifications = () => {
   });
 };
 
+const askForNotificationPermission = () => {
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+  else if (Notification.permission !== "denied") {
+    Notification.requestPermission();
+  }
+}
+
+const askForNotificationPermissionWhenNeeded = () => {
+  const switchButton = document.getElementById("switch-eye-break");
+  const active = document.getElementById("eye-break-notification-active");
+  document.addEventListener("DOMContentLoaded", () => {
+    if (active.innerText === "true") {
+      askForNotificationPermission();
+    }
+  });
+  switchButton.addEventListener("click", () => {
+    if (switchButton.checked) {
+      askForNotificationPermission();
+    }
+  });
+};
+
 const pushNotificationDemo = () => {
   const options = optionsForNotification(9);
   if (!("Notification" in window)) {
@@ -95,17 +119,44 @@ const pushNotificationDemo = () => {
   }
 }
 
+const twentyMinutesPassesOnHTMLForDemo = () => {
+  const computerTime = document.getElementById("computer-time");
+  const nbMinTot = Number.parseInt(computerTime.dataset.computerTimeMinutes, 10) + 20;
+  computerTime.dataset.computerTimeMinutes = nbMinTot;
+  const nbHrs = Math.floor(nbMinTot / 60);
+  const nbMin = nbMinTot % 60;
+  let hrsText = "";
+  if (!(nbHrs === 0 && nbMin != 0)){
+    hrsText = `${nbHrs}h`;
+  }
+  let minText = "";
+  if (nbMin < 10 && nbMin != 0 && nbHrs > 0){
+    minText = "0";
+  }
+  minText = minText + `${nbMin}`;
+  if (nbHrs === 0){
+    minText = minText + "min";
+  }
+  const hrs = document.getElementById('computer-time-hrs');
+  const min = document.getElementById('computer-time-min');
+  hrs.innerText = hrsText;
+  min.innerText = minText;
+};
+
 const eyeBreakNotificationsDemo = () => {
   const switchButton = document.getElementById("switch-eye-break");
   const active = document.getElementById("eye-break-notification-active");
   switchButton.addEventListener("click", () => {
-    setTimeout(() => {
-      if (active.innerText === "true") {
-        pushNotificationDemo();
-      }
-    }, 10000);
+    if (switchButton.checked) {
+      setTimeout(() => {
+        if (active.innerText === "true") {
+          twentyMinutesPassesOnHTMLForDemo();
+          pushNotificationDemo();
+        }
+      }, 10000);
+    }
   });
 };
 
 
-export { eyeBreakNotifications, eyeBreakNotificationsDemo };
+export { eyeBreakNotifications, askForNotificationPermissionWhenNeeded, eyeBreakNotificationsDemo };

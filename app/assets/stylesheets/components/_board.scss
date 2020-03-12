@@ -73,12 +73,12 @@ img#computer-icon {
   display: block;
   margin-top: 5%;
   margin-left: auto;
-  margin-right: 7%;
+  margin-right: 22%;
 }
 
 .computer-time {
   position: absolute;
-  left: 35%;
+  left: 28%;
   top: 25%;
   width: 50%;
   text-align: center;
@@ -93,15 +93,15 @@ img#computer-icon {
   height: 100%;
   #weather-temperature {
     position: absolute;
-    right: 30%;
-    bottom: 27%;
-    font-size: 24px;
+    right: 38%;
+    bottom: 21%;
+    font-size: 34px;
   }
   #weather-degrees {
     position: absolute;
     right: 11%;
-    top: 18%;
-    font-size: 14px;
+    top: 13%;
+    font-size: 20px;
   }
 }
 
@@ -112,11 +112,13 @@ img#computer-icon {
   padding-bottom: 5%;
 }
 .board-content.humidity {
+  margin-top: 4px;
   display: flex;
   img {
+    width: 22px;
     margin-left: 3px;
   }
   #weather-humidity {
-    font-size: 24px;
+    font-size: 34px;
   }
 }

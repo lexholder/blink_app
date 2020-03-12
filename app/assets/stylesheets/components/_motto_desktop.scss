@@ -4,9 +4,17 @@
   font-size: 36px;
   line-height: 54px;
   text-align: center;
-  margin-top: 150px;
   h2 {
     font-size: 36px;
     line-height: 54px;
+  }
+  @media (min-width: 1220px) {
+    margin-top: 85px;
+
+  }
+
+  @media (min-width: 1440px) {
+
+  margin-top: 190px;
   }
 }

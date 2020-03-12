@@ -18,3 +18,40 @@
     height: 16px;
   }
 }
+
+
+.logo {
+  position: relative;
+}
+.fixed,
+.animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.animated {
+  top: 4px;
+  animation: Blink 4s 1s infinite;
+}
+@keyframes Blink {
+  0% {
+    transform: scaleY(1);
+  }
+  6% {
+    top: 14px;
+    transform: scaleY(-1);
+  }
+  8% {
+    top: 14px;
+    transform: scaleY(-1);
+  }
+  12% {
+    top: 4px;
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

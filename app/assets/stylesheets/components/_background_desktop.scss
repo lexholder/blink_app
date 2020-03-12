@@ -1,5 +1,10 @@
-.background_desktop {
+.background {
     width: 100vw;
-    background-repeat: no-repeat ;
+    background-repeat: no-repeat;
     background-size: 100%;
 }
+
+.background.background-mobile{
+    height: 100vh;
+}
+

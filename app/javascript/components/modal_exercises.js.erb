@@ -80,17 +80,26 @@ const setplayButtons = () => {
   }
 };
 
-const fillInModalContent = (title, directions, repetition) => {
+const fillInModalContent = (title, directions, repetition, timeOfDay) => {
   document.getElementById("title-in-modal").innerText = title;
   let directionListHTML = "";
   directions.split("/").forEach( direction => {
     directionListHTML = directionListHTML + `<li>${direction}</li>`
   });
   document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
-  const nbRepetitions = document.getElementById("repetition");
+  const nbRepetitions = document.getElementById("repetitions");
+  console.log(nbRepetitions);
+  console.log(timeOfDay);
   if (nbRepetitions){
-    nbRepetitions.innerText = repetition;
+    if (timeOfDay === "morning"){
+      console.log('hey morning');
+      nbRepetitions.innerHTML = `Based on today's weather and the time spent on your computer yesterday, we will repeat this exercise <strong>${repetition} times</strong>.`;
+    } else if (timeOfDay === "night") {
+      console.log('hey night');
+      nbRepetitions.innerHTML = `Based on today's weather and time spent on your computer, we will repeat this exercise <strong>${repetition} times</strong>.`;
+    }
   }
+  console.log(nbRepetitions.innerHTML);
 };
 
 const setModalExercises = () => {
@@ -101,7 +110,14 @@ const setModalExercises = () => {
         const title = event.currentTarget.dataset.title;
         const directions = event.currentTarget.dataset.directions;
         const repetition = event.currentTarget.dataset.repetition;
-        fillInModalContent(title, directions, repetition);
+        let timeOfDay = "";
+        if (openModalButton.classList.contains('morning')){
+          timeOfDay = "morning";
+        } else if (openModalButton.classList.contains('night')){
+          console.log('this is night routine');
+          timeOfDay = "night";
+        }
+        fillInModalContent(title, directions, repetition, timeOfDay);
         const playButtonModalDiv = document.getElementById('play-btn-modal-div');
         if (playButtonModalDiv) {
           const playButtonInPageDiv = document.getElementById(event.currentTarget.dataset.playid);

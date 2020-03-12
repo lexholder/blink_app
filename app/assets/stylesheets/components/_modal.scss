@@ -14,10 +14,13 @@
   }
   .modal-header {
     border-bottom: 0 none;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
 }
   .modal-content {
     padding: 8%;
-    margin-top: 45%;
+    margin-top: 20%;
     background: linear-gradient(180deg, #F9F2E8 0%, #FFFFFF 14.97%);
     box-shadow: 4px 6px 22px rgba(153, 153, 153, 0.21);
     border-radius: 5px 50px 5px 5px;
@@ -33,25 +36,41 @@
     font-size: 16px;
     line-height: 24px;
   }
-  p, ul {
+  p, ol {
     font-style: normal;
     font-weight: 300;
     font-size: 16px;
-    line-height: 19px;
     font-style: light;
+    li {
+      margin-bottom: 4px;
+    }
+  }
+  ol {
+    // color: $gray;
   }
   .exercise {
     display: flex;
     align-items: center;
     #title-in-modal {
       padding-left: 40px;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+      font-weight: 600;
     }
     i {
       font-size: 40px;
       color: $hard-orange;
     }
-    .repetitions {
-      padding-left: 25px;
+  }
+  #repetitions {
+    padding-top: 20px;
+    color: $hard-orange;
+    font-size: 14px;
+    font-weight:300;
+    text-align: justify;
+    margin-bottom: 0;
+    strong {
+      font-weight: 600;
     }
   }
 }

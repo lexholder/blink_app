@@ -1,16 +1,31 @@
 #loginForm {
   width: 90%;
   position: relative;
+  font-color: #02196C;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 0;
+    -webkit-text-fill-color: #02196C;
+    transition: background-color 5000s ease-in-out 0s;
+    align-self: center;
+  }
   label {
     position: absolute;
   }
   .form-control{
     border: 0;
-
   }
   .form-group.user_email, .form-group.user_password {
     input {
       margin: 2%;
+      color: #02196C;
       &:focus {
         outline: none;
         border-color: inherit;
@@ -22,34 +37,51 @@
     border-bottom: .5px solid #818181;
     display: flex;
     justify-content: space-between;
-
   }
 }
 
+
 #loginForm.loginFormMobile {
-    margin-top: 150px;
+  margin-top: 150px;
+  font-color: #02196C;
 }
 
 #SignupFormMobile {
+  font-color: #02196C;
   position: relative;
   top: 30%;
   width: 100%;
   margin-top: 150px;
   margin-bottom: 50px;
   align-self: center;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 0;
+    -webkit-text-fill-color: #02196C;
+    transition: background-color 5000s ease-in-out 0s;
+    align-self: center;
+  }
   label {
     position: absolute;
   }
   .form-control{
     border: 0;
-
   }
   #city-input {
     padding-left: 12px;
   }
+
   .form-group.user_email, .form-group.user_password, .form-group.user_city,
   .form-group.user_first_name, .form-group.user_password_confirmation {
     input {
+      color: #02196C;
       margin: 2%;
       &:focus {
         outline: none;
@@ -62,23 +94,36 @@
     border-bottom: .5px solid #818181;
     display: flex;
     justify-content: space-between;
-
   }
 }
 
 #loginFormDesktop {
-  margin-top: 155px;
+  font-color: #02196C;
   width: 500px;
-  align-self: center;
+  margin-top: 155px;
+    input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 0;
+    -webkit-text-fill-color: #02196C;
+    transition: background-color 5000s ease-in-out 0s;
+    align-self: center;
+  }
   label {
     position: absolute;
   }
   .form-control{
     border: 0;
-
   }
   .form-group.user_email, .form-group.user_password {
     input {
+      color: #02196C;
       margin: 2%;
       &:focus {
         outline: none;
@@ -90,7 +135,6 @@
     border-bottom: .5px solid #818181;
     display: flex;
     justify-content: space-between;
-
   }
   #remember-me {
     padding-left: 15px;
@@ -98,9 +142,24 @@
 }
 
 #SignupFormDesktop {
+  font-color: #02196C;
   margin-top: 155px;
   width: 500px;
   align-self: center;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+  border: 0;
+  -webkit-text-fill-color: #02196C;
+  transition: background-color 5000s ease-in-out 0s;
+  align-self: center;
+  }
   #city-input {
     padding-left: 12px;
   }
@@ -114,6 +173,7 @@
   .form-group.user_email, .form-group.user_password, .form-group.user_city,
   .form-group.user_first_name, .form-group.user_password_confirmation {
     input {
+      color: #02196C;
       margin: 2%;
       &:focus {
         outline: none;

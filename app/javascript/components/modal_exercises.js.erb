@@ -88,18 +88,13 @@ const fillInModalContent = (title, directions, repetition, timeOfDay) => {
   });
   document.getElementById("directions-list-in-modal").innerHTML = directionListHTML;
   const nbRepetitions = document.getElementById("repetitions");
-  console.log(nbRepetitions);
-  console.log(timeOfDay);
   if (nbRepetitions){
     if (timeOfDay === "morning"){
-      console.log('hey morning');
       nbRepetitions.innerHTML = `Based on today's weather and the time spent on your computer yesterday, we will repeat this exercise <strong>${repetition} times</strong>.`;
     } else if (timeOfDay === "night") {
-      console.log('hey night');
       nbRepetitions.innerHTML = `Based on today's weather and time spent on your computer, we will repeat this exercise <strong>${repetition} times</strong>.`;
     }
   }
-  console.log(nbRepetitions.innerHTML);
 };
 
 const setModalExercises = () => {
@@ -114,7 +109,6 @@ const setModalExercises = () => {
         if (openModalButton.classList.contains('morning')){
           timeOfDay = "morning";
         } else if (openModalButton.classList.contains('night')){
-          console.log('this is night routine');
           timeOfDay = "night";
         }
         fillInModalContent(title, directions, repetition, timeOfDay);

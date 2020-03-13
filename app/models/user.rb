@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def create_todays_computer_time
-    ComputerTime.create(user: self, date: (Time.now.utc + user.timezone).to_date, minutes: 0)
+    ComputerTime.create(user: self, date: (Time.now.utc + self.timezone).to_date, minutes: 0)
   end
 
   def generate_todays_routines

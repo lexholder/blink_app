@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  geocoded_by :city
+  after_validation :geocode, if: :will_save_change_to_city?
   after_create :add_default_settings, :create_todays_computer_time, :generate_todays_routines
   has_many :computer_times
   has_many :routines, dependent: :destroy

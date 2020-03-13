@@ -24,19 +24,19 @@ class User < ApplicationRecord
   end
 
   def create_todays_computer_time
-    ComputerTime.create(user: self, date: Date.today, minutes: 0)
+    ComputerTime.create(user: self, date: (Time.now.utc + user.timezone).to_date, minutes: 0)
   end
 
   def generate_todays_routines
     offset = rand(Exercise.count)
     rand_exercise = Exercise.offset(offset).first
     rep = Recommendation.recommend_repetitions_morning(self)
-    Routine.create!({user: self, exercise: rand_exercise, date: Date.today, time_of_day: "morning", completed: false, repetition: rep})
-    if Time.now.hour > 17
+    Routine.create!({user: self, exercise: rand_exercise, date: (Time.now.utc + user.timezone).to_date, time_of_day: "morning", completed: false, repetition: rep})
+    if (Time.now.utc + user.timezone).hour > 17
       offset = rand(Exercise.count)
       rand_exercise = Exercise.offset(offset).first
       rep = Recommendation.recommend_repetitions_night(self)
-      Routine.create!({user: self, exercise: rand_exercise, date: Date.today, time_of_day: "night", completed: false, repetition: rep})
+      Routine.create!({user: self, exercise: rand_exercise, date: (Time.now.utc + user.timezone).to_date, time_of_day: "night", completed: false, repetition: rep})
     end
   end
 

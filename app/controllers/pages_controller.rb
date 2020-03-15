@@ -10,6 +10,10 @@ class PagesController < ApplicationController
       render :mobile_dashboard
     else
       @exercises = Exercise.all
+      @tab = params[:tab]
+      unless @tab
+        @tab = 'dashboard'
+      end
       render :desktop_dashboard
     end
   end

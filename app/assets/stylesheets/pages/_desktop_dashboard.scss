@@ -47,6 +47,10 @@
   padding: 0;
 }
 
+.tabcontent-blink.active {
+  display: block;
+}
+
 #dashboard {
   display: flex;
   justify-content: space-around;

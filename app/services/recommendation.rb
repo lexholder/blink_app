@@ -5,7 +5,7 @@ class Recommendation
   def self.recommend_repetitions_morning(user)
     humidity = fetch_humidity(user)
     temperature = fetch_temperature(user)
-    screen_time = user.computer_times.find { |c| c.date == Date.today.prev_day }
+    screen_time = user.computer_times.find { |c| c.date == (Time.now.utc + user.timezone).to_date.prev_day }
     points = 0
     if humidity > 50
       points += 1
@@ -35,7 +35,7 @@ class Recommendation
   def self.recommend_repetitions_night(user)
     humidity = fetch_humidity(user)
     temperature = fetch_temperature(user)
-    screen_time = user.computer_times.find { |c| c.date == Date.today }
+    screen_time = user.computer_times.find { |c| c.date == (Time.now.utc + user.timezone).to_date }
     points = 0
     if humidity > 50
       points += 1

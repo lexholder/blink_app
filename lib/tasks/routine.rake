@@ -1,37 +1,37 @@
 namespace :routine do
   desc "Generate morning exercise routine for all users"
   task generate_morning: :environment do
-    users = User.all
+    users = User.all.select { |user| (Time.now.utc + user.timezone).hour == 5 }
     users.each do |user|
       offset = rand(Exercise.count)
       rand_exercise = Exercise.offset(offset).first
       rep = Recommendation.recommend_repetitions_morning(user)
-      Routine.create!({user: user, exercise: rand_exercise, date: Date.today, time_of_day: "morning", completed: false, repetition: rep})
+      Routine.create!({user: user, exercise: rand_exercise, date: (Time.now.utc + user.timezone).to_date, time_of_day: "morning", completed: false, repetition: rep})
     end
   end
 
   desc "Generate night exercise routine for all users"
   task generate_night: :environment do
-    users = User.all
+    users = User.all.select { |user| (Time.now.utc + user.timezone).hour ==  17 }
     users.each do |user|
       offset = rand(Exercise.count)
       rand_exercise = Exercise.offset(offset).first
       rep = Recommendation.recommend_repetitions_night(user)
-      Routine.create!({user: user, exercise: rand_exercise, date: Date.today, time_of_day: "night", completed: false, repetition: rep})
+      Routine.create!({user: user, exercise: rand_exercise, date: (Time.now.utc + user.timezone).to_date, time_of_day: "night", completed: false, repetition: rep})
     end
   end
 
   desc "Send emails"
   task send_email_morning: :environment do
-    @setting = Setting.all.select { |r| r.morning_notification_active == true }
-    @setting.each do |setting|
+    settings = Setting.all.select { |s| s.morning_notification_active == true && (Time.now.utc + s.user.timezone).hour == 7 }
+    settings.each do |setting|
       UserMailer.with(user: setting.user).morning_notification.deliver_now
     end
   end
 
   task send_email_night: :environment do
-    @setting = Setting.all.select { |r| r.night_notification_active == true }
-    @setting.each do |setting|
+    settings = Setting.all.select { |s| s.night_notification_active == true && (Time.now.utc + s.user.timezone).hour == 18 }
+    settings.each do |setting|
       UserMailer.with(user: setting.user).night_notification.deliver_now
     end
   end

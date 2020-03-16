@@ -9,7 +9,7 @@ console.log("Hello from app/javascript/packs/dashboard_on_desktop.js");
 computerTime();
 eyeBreakNotifications();
 askForNotificationPermissionWhenNeeded();
-eyeBreakNotificationsDemo();
+//eyeBreakNotificationsDemo();
 
 switching();
 
